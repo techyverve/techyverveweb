@@ -1,2 +1,0 @@
-# techyverveweb
-TechyVerve Website
