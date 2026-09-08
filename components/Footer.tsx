@@ -10,11 +10,11 @@ export default function Footer({ variant = "full" }: FooterProps) {
     return (
       <footer>
         <div className="foot-bottom foot-bottom-simple">
-          <span>© 2026 TechyVerve · Kharadi, Pune</span>
+          <span>© 2020 TechyVerve · Kharadi, Pune</span>
           <div className="foot-contact-links">
             <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>
             <a href="tel:+917276156939">+91 72761 56939</a>
-            <a href="tel:+919172523881">+91 91725 23881</a>
+            <a href="tel:+919146053881">+91 91460 53881</a>
           </div>
         </div>
       </footer>
@@ -49,11 +49,11 @@ export default function Footer({ variant = "full" }: FooterProps) {
           <Link href="/career">Careers</Link>
           <a href="mailto:hr@techyverve.in">Contact</a>
           <a href="tel:+917276156939">+91 72761 56939</a>
-          <a href="tel:+919172523881">+91 91725 23881</a>
+          <a href="tel:+919146053881">+91 91460 53881</a>
         </div>
       </div>
       <div className="foot-bottom">
-        <span>© 2026 TechyVerve · Kharadi, Pune</span>
+        <span>© 2020 TechyVerve · Kharadi, Pune</span>
         <span>hr@techyverve.in</span>
       </div>
     </footer>
