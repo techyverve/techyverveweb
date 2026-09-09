@@ -14,7 +14,7 @@ export default function Contact() {
           <div className="contact-direct">
             <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>
             <a href="tel:+917276156939">+91 72761 56939</a>
-            <a href="tel:+919172523881">+91 91725 23881</a>
+            <a href="tel:+919146053881">+91 91460 53881</a>
           </div>
         </Reveal>
         <Reveal>

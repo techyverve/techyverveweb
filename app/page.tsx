@@ -26,7 +26,7 @@ export default function Home() {
       addressCountry: "IN",
     },
     email: "hr@techyverve.in",
-    telephone: ["+91-72761-56939", "+91-91725-23881"],
+    telephone: ["+91-72761-56939", "+91-91460-53881"],
     areaServed: "IN",
     sameAs: [],
     contactPoint: [
@@ -38,7 +38,7 @@ export default function Home() {
       },
       {
         "@type": "ContactPoint",
-        telephone: "+91-91725-23881",
+        telephone: "+91-91460-53881",
         contactType: "customer service",
         areaServed: "IN",
       },
