@@ -4,7 +4,8 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { getProject, projects, themeVars } from "@/lib/projects";
+import ScreenGallery from "@/components/ScreenGallery";
+import { getProject, projects, screens, themeVars } from "@/lib/projects";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -51,6 +52,7 @@ export default async function ProjectPage({ params }: Props) {
       operatingSystem: project.platform,
       description: project.summary,
       creator: { "@type": "Organization", name: "TechyVerve", url: "https://www.techyverve.in" },
+      screenshot: (screens[project.slug] ?? []).map((sc) => `https://www.techyverve.in${sc.src}`),
     },
     {
       "@context": "https://schema.org",
@@ -92,6 +94,19 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           </div>
         </header>
+
+        {(screens[project.slug] ?? []).length > 0 && (
+          <section className="pt-section" aria-labelledby="screens-h">
+            <div className="wrap">
+              <Reveal>
+                <h2 className="pt-h2" id="screens-h">Inside the app</h2>
+              </Reveal>
+              <Reveal>
+                <ScreenGallery name={project.name} screens={screens[project.slug]} />
+              </Reveal>
+            </div>
+          </section>
+        )}
 
         <section className="pt-section">
           <div className="wrap">

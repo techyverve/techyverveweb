@@ -107,7 +107,7 @@ export const projects: Project[] = [
     name: "Earthmovers Billing",
     category: "Fleet billing & expenses",
     platform: "Web",
-    tagline: "Billing, vehicle expenses and profit tracking for earthmoving contractors.",
+    tagline: "BillMaster — billing, fleet expenses and profit tracking for earthmoving contractors.",
     summary:
       "Built for JCB and earthmover businesses: bill customers per job, track fuel and vehicle expenses, follow pending payments and see net profit per vehicle.",
     stats: [
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     keywords: ["earthmovers billing software", "JCB billing software", "vehicle expense tracking", "contractor billing app"],
     theme: {
       bg: "#F1F5FB", surface: "#FFFFFF", line: "#DCE4F2", text: "#0F1E3D", muted: "#5B6B8C",
-      brand: "linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 60%, #3B82F6 100%)", c2: "#DC2626", c3: "#1F2937", ink: "#1F2937",
+      brand: "linear-gradient(135deg, #15171A 0%, #1E3A8A 45%, #1D4ED8 100%)", c2: "#16A34A", c3: "#FDB813", ink: "#111827",
       accent: "#1D4ED8", accentSoft: "#E6EEFF", onAccent: "#FFFFFF",
       font: "var(--font-inter), system-ui, sans-serif", dark: false,
     },
@@ -219,3 +219,43 @@ export function themeVars(t: ProjectTheme): CSSProperties {
     colorScheme: t.dark ? "dark" : "light",
   } as CSSProperties;
 }
+
+export interface Screen {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  /** Phone-sized capture, shown in a phone frame */
+  mobile?: boolean;
+}
+
+// Real screens captured from each app running locally with sample data
+const desk = (slug: string, file: string, caption: string, alt: string, height = 820): Screen => ({
+  src: `/projects/${slug}/${file}`, caption, alt, width: 1280, height,
+});
+
+export const screens: Record<string, Screen[]> = {
+  "hotel-billing": [
+    desk("hotel-billing", "tables.png", "Tables — today's sales, running tables and bills waiting for payment", "Hotel Billing tables screen showing free, eating and billed tables"),
+    desk("hotel-billing", "order.png", "Taking an order — favourites first, running bill on the right", "Hotel Billing order screen with dishes and running total"),
+    desk("hotel-billing", "menu.png", "Menu — categories, veg / non-veg marks, favourites and availability", "Hotel Billing menu management screen"),
+    { src: "/projects/hotel-billing/phone.png", caption: "On a phone — the order slides up from a bottom bar", alt: "Hotel Billing order screen on a phone", width: 1170, height: 2532, mobile: true },
+  ],
+  payroll: [
+    desk("payroll", "dashboard.png", "HR dashboard — today's attendance, 14-day trend and team split", "Payroll HR dashboard with attendance and charts"),
+    desk("payroll", "employees.png", "Employees — salary, branch, statutory and login status", "Payroll employee list"),
+    desk("payroll", "payslips.png", "Payroll run — gross, deductions, net pay and printable slips", "Payroll run with payslips"),
+  ],
+  "earthmovers-billing": [
+    desk("earthmovers-billing", "dashboard.png", "Dashboard — monthly sales and profit after fuel and expenses", "Earthmovers billing dashboard with sales and profit charts"),
+    desk("earthmovers-billing", "clients.png", "Clients — contractors with address, mobile and GST number", "Earthmovers client list"),
+    desk("earthmovers-billing", "fleet.png", "Fleet — every machine with its hourly, daily or per-trip rate", "Earthmovers vehicle fleet list"),
+  ],
+  "pigmy-pro": [],
+  hisaab: [
+    desk("hisaab", "groups.png", "Groups — every trip, flat and team in one place", "Hisaab groups screen", 800),
+    desk("hisaab", "trip.png", "A trip — members, shared expenses and per-head split", "Hisaab group expenses screen", 800),
+    desk("hisaab", "settle.png", "Final hisaab — who pays whom, with the fewest payments", "Hisaab settlement screen", 800),
+  ],
+};

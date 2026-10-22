@@ -2621,3 +2621,206 @@ section.section-alt {
     animation: none;
   }
 }
+
+/* ==========================================================================
+   Round 5 — real app screenshots
+   ========================================================================== */
+.pp-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: top left;
+  aspect-ratio: 16 / 9;
+}
+.proj-banner {
+  height: 230px;
+}
+
+.gallery {
+  display: grid;
+  gap: 28px;
+  align-items: start;
+}
+.gallery.has-phone {
+  grid-template-columns: minmax(0, 1fr) 260px;
+}
+.gal-frame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--p-line);
+  background: var(--p-surface);
+  box-shadow: 0 40px 80px -40px var(--p-accent), 0 12px 30px -18px rgba(0, 0, 0, 0.35);
+}
+.gal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--p-line);
+  background: var(--p-bg);
+}
+.gal-bar i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.gal-bar i:nth-child(1) { background: #ff5f57; }
+.gal-bar i:nth-child(2) { background: #febc2e; }
+.gal-bar i:nth-child(3) { background: #28c840; }
+.gal-bar span {
+  margin-left: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--p-muted);
+}
+.gal-shot {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  aspect-ratio: 1280 / 820;
+}
+.gal-shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity 0.6s var(--ease), transform 0.9s var(--ease);
+}
+.gal-shot img.on {
+  opacity: 1;
+  transform: none;
+}
+.gal-caption {
+  margin: 14px 2px 0;
+  font-size: 15px;
+  color: var(--p-muted);
+  min-height: 1.5em;
+}
+.gal-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.gal-thumbs button {
+  display: grid;
+  gap: 8px;
+  padding: 6px 6px 10px;
+  border-radius: 12px;
+  border: 1px solid var(--p-line);
+  background: var(--p-surface);
+  color: var(--p-text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.3s var(--spring), box-shadow 0.3s;
+}
+.gal-thumbs button img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top left;
+  border-radius: 8px;
+}
+.gal-thumbs button span {
+  padding: 0 4px;
+}
+.gal-thumbs button:hover {
+  transform: translateY(-2px);
+}
+.gal-thumbs button.on {
+  border-color: var(--p-accent);
+  box-shadow: 0 0 0 3px var(--p-accent-soft);
+}
+.gal-phone {
+  margin: 0;
+  position: sticky;
+  top: 100px;
+}
+.phone-frame {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 40px;
+  background: #111;
+  box-shadow: 0 30px 60px -30px var(--p-accent), inset 0 0 0 2px #333;
+  cursor: zoom-in;
+}
+.phone-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+}
+.gal-phone figcaption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--p-muted);
+  text-align: center;
+}
+.gal-zoom {
+  max-width: min(1280px, 94vw);
+  max-height: 94vh;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: transparent;
+  overflow: visible;
+  margin: auto;
+}
+.gal-zoom::backdrop {
+  background: rgba(10, 10, 12, 0.82);
+  backdrop-filter: blur(6px);
+}
+.gal-zoom img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 86vh;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+.gal-zoom p {
+  margin-top: 10px;
+  text-align: center;
+  color: #e5e5e5;
+  font-size: 14px;
+}
+.gal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  color: #111;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .gallery.has-phone {
+    grid-template-columns: 1fr;
+  }
+  .gal-phone {
+    position: static;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
