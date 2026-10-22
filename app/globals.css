@@ -2262,3 +2262,362 @@ nav.crumbs {
   justify-content: flex-start;
   padding: 0;
 }
+
+/* ==========================================================================
+   Round 4 — fuller colour: ambient orbs, tinted cards, branded projects
+   ========================================================================== */
+:root {
+  --rose: #c2255c;
+  --rose-bg: #fdecf2;
+  --violet: #6d28d9;
+  --violet-bg: #f2ecff;
+}
+
+/* drifting colour orbs behind everything */
+.bg-orbs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-orbs span {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.32;
+  animation: orb 26s ease-in-out infinite alternate;
+}
+.bg-orbs span:nth-child(1) { background: #f6b27a; top: -120px; left: -160px; }
+.bg-orbs span:nth-child(2) { background: #7fd8c6; top: 30%; right: -180px; animation-delay: -6s; }
+.bg-orbs span:nth-child(3) { background: #f5a3c0; bottom: -160px; left: 20%; animation-delay: -12s; opacity: 0.22; }
+.bg-orbs span:nth-child(4) { background: #c4b5fd; top: 55%; left: -200px; animation-delay: -18s; opacity: 0.2; }
+@keyframes orb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, 60px) scale(1.15); }
+  100% { transform: translate(-40px, 120px) scale(0.95); }
+}
+
+/* sections get a soft wash instead of plain white */
+#services,
+#process,
+#faq,
+#industries {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(253, 241, 231, 0.45));
+}
+section.section-alt {
+  background:
+    radial-gradient(circle at 1px 1px, rgba(180, 83, 11, 0.14) 1px, transparent 0) 0 0 / 22px 22px,
+    radial-gradient(700px 400px at 0% 0%, rgba(233, 247, 244, 0.9), transparent 70%),
+    radial-gradient(700px 400px at 100% 100%, rgba(253, 236, 242, 0.8), transparent 70%),
+    linear-gradient(180deg, #fbf8f3, #fdf3ea);
+}
+
+/* colour-cycled accents on cards */
+.bento > :nth-child(3n + 1) { --tone: var(--amber); --tone-bg: var(--amber-bg); }
+.bento > :nth-child(3n + 2) { --tone: var(--teal); --tone-bg: var(--teal-bg); }
+.bento > :nth-child(3n + 3) { --tone: var(--rose); --tone-bg: var(--rose-bg); }
+.ind-grid > :nth-child(4n + 1) { --tone: var(--amber); --tone-bg: var(--amber-bg); }
+.ind-grid > :nth-child(4n + 2) { --tone: var(--violet); --tone-bg: var(--violet-bg); }
+.ind-grid > :nth-child(4n + 3) { --tone: var(--teal); --tone-bg: var(--teal-bg); }
+.ind-grid > :nth-child(4n + 4) { --tone: var(--rose); --tone-bg: var(--rose-bg); }
+.process-grid > :nth-child(4n + 1),
+.team-grid > :nth-child(3n + 1) { --tone: var(--amber); --tone-bg: var(--amber-bg); }
+.process-grid > :nth-child(4n + 2),
+.team-grid > :nth-child(3n + 2) { --tone: var(--teal); --tone-bg: var(--teal-bg); }
+.process-grid > :nth-child(4n + 3),
+.team-grid > :nth-child(3n + 3) { --tone: var(--violet); --tone-bg: var(--violet-bg); }
+.process-grid > :nth-child(4n + 4) { --tone: var(--rose); --tone-bg: var(--rose-bg); }
+
+.svc-card,
+.ind-card,
+.process-step,
+.team-card {
+  background:
+    radial-gradient(260px 160px at 100% 0%, var(--tone-bg, transparent), transparent 70%),
+    rgba(255, 255, 255, 0.88);
+  border-top: 3px solid var(--tone, var(--line));
+}
+.svc-icon {
+  color: var(--tone, var(--amber));
+  background: var(--tone-bg, var(--amber-bg));
+  border-color: transparent;
+}
+.svc-card:hover .svc-icon {
+  background: var(--tone, var(--amber));
+}
+.svc-card.in:hover,
+.ind-card.in:hover,
+.process-step.in:hover,
+.team-card.in:hover {
+  border-color: var(--tone, var(--amber));
+}
+.svc-points li {
+  background: var(--tone-bg, var(--line-soft));
+  color: var(--tone, var(--text));
+}
+.svc-more {
+  color: var(--tone, var(--amber));
+}
+.ind-emoji {
+  background: var(--tone-bg, var(--amber-bg));
+}
+.process-step .process-num {
+  color: var(--tone, var(--amber));
+}
+
+/* stack strip badges cycle colours */
+.stack-badges .tech-badge:nth-child(4n + 1) { color: var(--amber); background: var(--amber-bg); border-color: transparent; }
+.stack-badges .tech-badge:nth-child(4n + 2) { color: var(--teal); background: var(--teal-bg); border-color: transparent; }
+.stack-badges .tech-badge:nth-child(4n + 3) { color: var(--violet); background: var(--violet-bg); border-color: transparent; }
+.stack-badges .tech-badge:nth-child(4n + 4) { color: var(--rose); background: var(--rose-bg); border-color: transparent; }
+
+/* ---------- branded project cards ---------- */
+.proj-card {
+  padding: 0;
+  overflow: hidden;
+  background: var(--p-bg);
+  border: 1px solid var(--p-line);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 18px 40px -26px var(--p-accent);
+}
+.proj-card:hover {
+  box-shadow: 0 30px 60px -28px var(--p-accent);
+}
+.proj-banner {
+  position: relative;
+  height: 210px;
+  padding: 22px 22px 0;
+  background: var(--p-brand);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.pb-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.6;
+}
+.pb-orb-1 { width: 160px; height: 160px; background: var(--p-c2); top: -50px; right: -30px; }
+.pb-orb-2 { width: 120px; height: 120px; background: var(--p-c3); bottom: -40px; left: -20px; opacity: 0.45; }
+.proj-banner .proj-preview {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  border-radius: 14px 14px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 0;
+  background: var(--p-surface);
+  box-shadow: 0 -10px 30px -12px rgba(0, 0, 0, 0.35);
+  transform: translateY(14px);
+  transition: transform 0.5s var(--ease);
+}
+.proj-card:hover .proj-banner .proj-preview {
+  transform: translateY(4px);
+}
+.pp-bar {
+  align-items: center;
+}
+.pp-bar i:nth-child(1) { background: #ff5f57; }
+.pp-bar i:nth-child(2) { background: #febc2e; }
+.pp-bar i:nth-child(3) { background: #28c840; }
+.pp-title {
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--p-muted);
+}
+.proj-banner .pp-body {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  align-items: stretch;
+}
+.pp-side {
+  width: 34px;
+  border-radius: 8px;
+  background: var(--p-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 7px;
+}
+.pp-side span {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.25);
+}
+.pp-side span.on {
+  background: var(--p-accent);
+}
+.pp-main {
+  flex: 1;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.pp-kpis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.pp-kpi {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--p-accent-soft);
+  min-width: 0;
+}
+.pp-kpi b {
+  display: block;
+  font-size: 14px;
+  color: var(--p-accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pp-kpi b.c2 {
+  color: var(--p-c2);
+}
+.pp-kpi small {
+  display: block;
+  font-size: 9px;
+  color: var(--p-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pp-chips {
+  display: flex;
+  gap: 6px;
+  overflow: hidden;
+}
+.pp-chips span {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: #fff;
+  white-space: nowrap;
+}
+.pp-chips .chip-a { background: var(--p-c2); }
+.pp-chips .chip-b { background: var(--p-c3); }
+.pp-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 34px;
+}
+.pp-bars span {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: var(--p-accent);
+  opacity: 0.85;
+  transform-origin: bottom;
+  transition: transform 0.6s var(--spring);
+}
+.pp-bars span.c2 { background: var(--p-c2); }
+.pp-bars span.c3 { background: var(--p-c3); }
+.proj-card:hover .pp-bars span:nth-child(odd) { transform: scaleY(1.15); }
+.proj-card:hover .pp-bars span:nth-child(even) { transform: scaleY(0.85); }
+.proj-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px;
+}
+.proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.proj-stack span {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--p-line);
+  color: var(--p-muted);
+  background: var(--p-surface);
+}
+.proj-content .proj-link {
+  margin-top: 16px;
+}
+
+/* ---------- branded project pages ---------- */
+.pt-hero {
+  position: relative;
+  overflow: hidden;
+}
+.pt-hero .wrap {
+  position: relative;
+}
+.pt-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: orb 22s ease-in-out infinite alternate;
+}
+.pt-orb-1 { width: 460px; height: 460px; background: var(--p-accent); opacity: 0.22; top: -160px; right: -100px; }
+.pt-orb-2 { width: 360px; height: 360px; background: var(--p-c2); opacity: 0.16; bottom: -140px; left: -120px; animation-delay: -7s; }
+.pt-orb-3 { width: 300px; height: 300px; background: var(--p-c3); opacity: 0.14; top: 30%; left: 45%; animation-delay: -14s; }
+.pt-hero h1 {
+  background: var(--p-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 6px;
+}
+.pt-btn {
+  background: var(--p-brand);
+  border: 0;
+  box-shadow: 0 10px 24px -10px var(--p-accent);
+}
+.pt-btn-ghost {
+  background: var(--p-surface);
+  border: 1px solid var(--p-line);
+  box-shadow: none;
+}
+.tone-0 { --t: var(--p-accent); }
+.tone-1 { --t: var(--p-c2); }
+.tone-2 { --t: var(--p-c3); }
+.pt-stat {
+  border-top: 3px solid var(--t);
+  background:
+    radial-gradient(200px 120px at 100% 0%, color-mix(in srgb, var(--t) 12%, transparent), transparent 70%),
+    var(--p-surface);
+}
+.pt-stat b {
+  color: var(--t);
+}
+.pt-feature {
+  background:
+    radial-gradient(240px 140px at 100% 0%, color-mix(in srgb, var(--t) 10%, transparent), transparent 70%),
+    var(--p-surface);
+}
+.pt-num {
+  background: color-mix(in srgb, var(--t) 14%, transparent);
+  color: var(--t);
+}
+.pt-feature.in:hover {
+  border-color: var(--t);
+}
+.pt-tags span:nth-child(3n + 1) { border-color: color-mix(in srgb, var(--p-accent) 40%, transparent); color: var(--p-accent); }
+.pt-tags span:nth-child(3n + 2) { border-color: color-mix(in srgb, var(--p-c2) 40%, transparent); color: var(--p-c2); }
+.pt-tags span:nth-child(3n + 3) { border-color: color-mix(in srgb, var(--p-c3) 40%, transparent); color: var(--p-c3); }
+.pt-next {
+  position: relative;
+  overflow: hidden;
+  background: var(--p-brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-orbs span,
+  .pt-orb {
+    animation: none;
+  }
+}

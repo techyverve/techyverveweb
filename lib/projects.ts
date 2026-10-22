@@ -11,6 +11,13 @@ export interface ProjectTheme {
   accent: string;
   accentSoft: string;
   onAccent: string;
+  /** Brand gradient used for hero banners */
+  brand: string;
+  /** Secondary status colours from the product (e.g. free / billed) */
+  c2: string;
+  c3: string;
+  /** Dark panel colour (sidebar, ink) */
+  ink: string;
   /** Font stack the real product uses */
   font: string;
   dark: boolean;
@@ -59,6 +66,7 @@ export const projects: Project[] = [
     keywords: ["restaurant billing software", "hotel billing app India", "restaurant POS", "table order management"],
     theme: {
       bg: "#FAF6F2", surface: "#FFFFFF", line: "#EEE4DB", text: "#1F1611", muted: "#6F635B",
+      brand: "linear-gradient(135deg, #D9480F 0%, #C2255C 100%)", c2: "#15803D", c3: "#6D28D9", ink: "#2B1B16",
       accent: "#C2410C", accentSoft: "#FFF0E6", onAccent: "#FFFFFF",
       font: "var(--font-jakarta), system-ui, sans-serif", dark: false,
     },
@@ -89,6 +97,7 @@ export const projects: Project[] = [
     keywords: ["payroll software India", "HR payroll SaaS", "QR attendance system", "payslip generator PF ESI"],
     theme: {
       bg: "#F6F5F3", surface: "#FFFFFF", line: "#E6E8EF", text: "#081026", muted: "#6B7C99",
+      brand: "linear-gradient(135deg, #7B1E3A 0%, #A03657 45%, #4B5BFC 100%)", c2: "#12805C", c3: "#4B5BFC", ink: "#081026",
       accent: "#7B1E3A", accentSoft: "#FBF3F5", onAccent: "#FFFFFF",
       font: "var(--font-inter), system-ui, sans-serif", dark: false,
     },
@@ -119,6 +128,7 @@ export const projects: Project[] = [
     keywords: ["earthmovers billing software", "JCB billing software", "vehicle expense tracking", "contractor billing app"],
     theme: {
       bg: "#F1F5FB", surface: "#FFFFFF", line: "#DCE4F2", text: "#0F1E3D", muted: "#5B6B8C",
+      brand: "linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 60%, #3B82F6 100%)", c2: "#DC2626", c3: "#1F2937", ink: "#1F2937",
       accent: "#1D4ED8", accentSoft: "#E6EEFF", onAccent: "#FFFFFF",
       font: "var(--font-inter), system-ui, sans-serif", dark: false,
     },
@@ -149,6 +159,7 @@ export const projects: Project[] = [
     keywords: ["pigmy collection app", "daily deposit collection app", "credit society mobile app", "bank agent app"],
     theme: {
       bg: "#F8FAFC", surface: "#FFFFFF", line: "#E5E7EB", text: "#1F2937", muted: "#6B7280",
+      brand: "linear-gradient(135deg, #6739B7 0%, #8B5CF6 55%, #3B82F6 100%)", c2: "#22C55E", c3: "#F59E0B", ink: "#1F2937",
       accent: "#6739B7", accentSoft: "#F1EBFB", onAccent: "#FFFFFF",
       font: "var(--font-inter), system-ui, sans-serif", dark: false,
     },
@@ -179,6 +190,7 @@ export const projects: Project[] = [
     keywords: ["expense splitting app", "split bills with friends", "group expense tracker India", "hisaab app"],
     theme: {
       bg: "#0D0D0F", surface: "#1C1C20", line: "rgba(255,255,255,0.08)", text: "#F0F0F5", muted: "#8888A0",
+      brand: "linear-gradient(135deg, #7C6AF7 0%, #A78BFA 50%, #F472B6 100%)", c2: "#34D399", c3: "#FBBF24", ink: "#141416",
       accent: "#7C6AF7", accentSoft: "rgba(124,106,247,0.14)", onAccent: "#FFFFFF",
       font: "var(--font-jakarta), system-ui, sans-serif", dark: true,
     },
@@ -200,6 +212,10 @@ export function themeVars(t: ProjectTheme): CSSProperties {
     "--p-accent-soft": t.accentSoft,
     "--p-on-accent": t.onAccent,
     "--p-font": t.font,
+    "--p-brand": t.brand,
+    "--p-c2": t.c2,
+    "--p-c3": t.c3,
+    "--p-ink": t.ink,
     colorScheme: t.dark ? "dark" : "light",
   } as CSSProperties;
 }
