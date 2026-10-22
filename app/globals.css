@@ -2263,117 +2263,6 @@ nav.crumbs {
   padding: 0;
 }
 
-/* ==========================================================================
-   Round 4 — fuller colour: ambient orbs, tinted cards, branded projects
-   ========================================================================== */
-:root {
-  --rose: #c2255c;
-  --rose-bg: #fdecf2;
-  --violet: #6d28d9;
-  --violet-bg: #f2ecff;
-}
-
-/* drifting colour orbs behind everything */
-.bg-orbs {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.bg-orbs span {
-  position: absolute;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  filter: blur(110px);
-  opacity: 0.32;
-  animation: orb 26s ease-in-out infinite alternate;
-}
-.bg-orbs span:nth-child(1) { background: #f6b27a; top: -120px; left: -160px; }
-.bg-orbs span:nth-child(2) { background: #7fd8c6; top: 30%; right: -180px; animation-delay: -6s; }
-.bg-orbs span:nth-child(3) { background: #f5a3c0; bottom: -160px; left: 20%; animation-delay: -12s; opacity: 0.22; }
-.bg-orbs span:nth-child(4) { background: #c4b5fd; top: 55%; left: -200px; animation-delay: -18s; opacity: 0.2; }
-@keyframes orb {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(80px, 60px) scale(1.15); }
-  100% { transform: translate(-40px, 120px) scale(0.95); }
-}
-
-/* sections get a soft wash instead of plain white */
-#services,
-#process,
-#faq,
-#industries {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), rgba(253, 241, 231, 0.45));
-}
-section.section-alt {
-  background:
-    radial-gradient(circle at 1px 1px, rgba(180, 83, 11, 0.14) 1px, transparent 0) 0 0 / 22px 22px,
-    radial-gradient(700px 400px at 0% 0%, rgba(233, 247, 244, 0.9), transparent 70%),
-    radial-gradient(700px 400px at 100% 100%, rgba(253, 236, 242, 0.8), transparent 70%),
-    linear-gradient(180deg, #fbf8f3, #fdf3ea);
-}
-
-/* colour-cycled accents on cards */
-.bento > :nth-child(3n + 1) { --tone: var(--amber); --tone-bg: var(--amber-bg); }
-.bento > :nth-child(3n + 2) { --tone: var(--teal); --tone-bg: var(--teal-bg); }
-.bento > :nth-child(3n + 3) { --tone: var(--rose); --tone-bg: var(--rose-bg); }
-.ind-grid > :nth-child(4n + 1) { --tone: var(--amber); --tone-bg: var(--amber-bg); }
-.ind-grid > :nth-child(4n + 2) { --tone: var(--violet); --tone-bg: var(--violet-bg); }
-.ind-grid > :nth-child(4n + 3) { --tone: var(--teal); --tone-bg: var(--teal-bg); }
-.ind-grid > :nth-child(4n + 4) { --tone: var(--rose); --tone-bg: var(--rose-bg); }
-.process-grid > :nth-child(4n + 1),
-.team-grid > :nth-child(3n + 1) { --tone: var(--amber); --tone-bg: var(--amber-bg); }
-.process-grid > :nth-child(4n + 2),
-.team-grid > :nth-child(3n + 2) { --tone: var(--teal); --tone-bg: var(--teal-bg); }
-.process-grid > :nth-child(4n + 3),
-.team-grid > :nth-child(3n + 3) { --tone: var(--violet); --tone-bg: var(--violet-bg); }
-.process-grid > :nth-child(4n + 4) { --tone: var(--rose); --tone-bg: var(--rose-bg); }
-
-.svc-card,
-.ind-card,
-.process-step,
-.team-card {
-  background:
-    radial-gradient(260px 160px at 100% 0%, var(--tone-bg, transparent), transparent 70%),
-    rgba(255, 255, 255, 0.88);
-  border-top: 3px solid var(--tone, var(--line));
-}
-.svc-icon {
-  color: var(--tone, var(--amber));
-  background: var(--tone-bg, var(--amber-bg));
-  border-color: transparent;
-}
-.svc-card:hover .svc-icon {
-  background: var(--tone, var(--amber));
-}
-.svc-card.in:hover,
-.ind-card.in:hover,
-.process-step.in:hover,
-.team-card.in:hover {
-  border-color: var(--tone, var(--amber));
-}
-.svc-points li {
-  background: var(--tone-bg, var(--line-soft));
-  color: var(--tone, var(--text));
-}
-.svc-more {
-  color: var(--tone, var(--amber));
-}
-.ind-emoji {
-  background: var(--tone-bg, var(--amber-bg));
-}
-.process-step .process-num {
-  color: var(--tone, var(--amber));
-}
-
-/* stack strip badges cycle colours */
-.stack-badges .tech-badge:nth-child(4n + 1) { color: var(--amber); background: var(--amber-bg); border-color: transparent; }
-.stack-badges .tech-badge:nth-child(4n + 2) { color: var(--teal); background: var(--teal-bg); border-color: transparent; }
-.stack-badges .tech-badge:nth-child(4n + 3) { color: var(--violet); background: var(--violet-bg); border-color: transparent; }
-.stack-badges .tech-badge:nth-child(4n + 4) { color: var(--rose); background: var(--rose-bg); border-color: transparent; }
-
 /* ---------- branded project cards ---------- */
 .proj-card {
   padding: 0;
@@ -2616,7 +2505,6 @@ section.section-alt {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bg-orbs span,
   .pt-orb {
     animation: none;
   }
@@ -2823,4 +2711,15 @@ section.section-alt {
     max-width: 260px;
     margin: 0 auto;
   }
+}
+
+@keyframes orb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(80px, 60px) scale(1.15); }
+  100% { transform: translate(-40px, 120px) scale(0.95); }
+}
+
+.svc-card .svc-tag {
+  display: inline-block;
+  align-self: flex-start;
 }
