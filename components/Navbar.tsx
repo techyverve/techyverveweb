@@ -39,7 +39,7 @@ export default function Navbar({ current }: NavbarProps) {
     <nav className={`${scrolled ? "scrolled" : ""}${open ? " open" : ""}`} aria-label="Main">
       <div className="nav-inner">
         <Link href="/" aria-label="TechyVerve home" className="nav-logo" onClick={() => setOpen(false)}>
-          <Logo height={36} withWordmark />
+          <Logo height={42} />
         </Link>
 
         <div className="nav-links" id="nav-links">
@@ -54,12 +54,12 @@ export default function Navbar({ current }: NavbarProps) {
               {l.label}
             </Link>
           ))}
-          <Link href="/#contact-form" className="btn nav-cta-mobile" onClick={() => setOpen(false)}>
+          <Link href="/#contact-form" className="nav-cta-mobile" onClick={() => setOpen(false)}>
             Contact us
           </Link>
         </div>
 
-        <Link href="/#contact-form" className="btn btn-sm nav-cta">
+        <Link href="/#contact-form" className="nav-cta">
           Contact us
         </Link>
 

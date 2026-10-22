@@ -15,8 +15,8 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 80,
-          background: "linear-gradient(135deg, #ffffff 0%, #f5f5f5 60%, #f3e8ff 100%)",
-          color: "#171717",
+          background: "linear-gradient(135deg, #ffffff 0%, #f5f5f5 60%, #fdf1e7 100%)",
+          color: "#15171e",
         }}
       >
         <div style={{ fontSize: 28, color: "#737373", letterSpacing: 4 }}>TECHYVERVE · KHARADI, PUNE</div>

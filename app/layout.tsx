@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
-import { Inter, Inter_Tight, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
-// Display face — stands in for Satoshi, which isn't on Google Fonts
-const interTight = Inter_Tight({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-display",
-  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dm-sans",
 });
 
-// Used by the Hotel Billing and Hisaab case-study themes
+// Inter and Plus Jakarta Sans are used by the project case-study themes
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -80,8 +78,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { color: "#ffffff" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -89,7 +86,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${dmSans.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
         <div className="grid-bg" aria-hidden="true"></div>
