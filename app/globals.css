@@ -2253,3 +2253,12 @@ section.section-alt {
     width: auto;
   }
 }
+
+/* breadcrumbs are <nav> elements too — keep the sticky navbar rule off them */
+nav.crumbs {
+  position: static;
+  top: auto;
+  z-index: auto;
+  justify-content: flex-start;
+  padding: 0;
+}
