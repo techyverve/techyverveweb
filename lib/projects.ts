@@ -235,17 +235,25 @@ const desk = (slug: string, file: string, caption: string, alt: string, height =
   src: `/projects/${slug}/${file}`, caption, alt, width: 1280, height,
 });
 
+const phone = (slug: string, file: string, caption: string, alt: string): Screen => ({
+  src: `/projects/${slug}/${file}`, caption, alt, width: 1170, height: 2532, mobile: true,
+});
+
 export const screens: Record<string, Screen[]> = {
   "hotel-billing": [
     desk("hotel-billing", "tables.png", "Tables — today's sales, running tables and bills waiting for payment", "Hotel Billing tables screen showing free, eating and billed tables"),
     desk("hotel-billing", "order.png", "Taking an order — favourites first, running bill on the right", "Hotel Billing order screen with dishes and running total"),
     desk("hotel-billing", "menu.png", "Menu — categories, veg / non-veg marks, favourites and availability", "Hotel Billing menu management screen"),
-    { src: "/projects/hotel-billing/phone.png", caption: "On a phone — the order slides up from a bottom bar", alt: "Hotel Billing order screen on a phone", width: 1170, height: 2532, mobile: true },
+    phone("hotel-billing", "phone.png", "On a phone — the order slides up from a bottom bar", "Hotel Billing order screen on a phone"),
   ],
   payroll: [
     desk("payroll", "dashboard.png", "HR dashboard — today's attendance, 14-day trend and team split", "Payroll HR dashboard with attendance and charts"),
     desk("payroll", "employees.png", "Employees — salary, branch, statutory and login status", "Payroll employee list"),
+    desk("payroll", "attendance.png", "Attendance — daily marking with check-in times and late flags", "Payroll daily attendance marking"),
     desk("payroll", "payslips.png", "Payroll run — gross, deductions, net pay and printable slips", "Payroll run with payslips"),
+    phone("payroll", "phone-today.png", "Employee app — check in and out by scanning the branch QR", "Payroll employee app today screen"),
+    phone("payroll", "phone-attendance.png", "Employee app — their own monthly attendance", "Payroll employee attendance screen"),
+    phone("payroll", "phone-payslips.png", "Employee app — finalized payslips, month by month", "Payroll employee payslips screen"),
   ],
   "earthmovers-billing": [
     desk("earthmovers-billing", "dashboard.png", "Dashboard — monthly sales and profit after fuel and expenses", "Earthmovers billing dashboard with sales and profit charts"),
