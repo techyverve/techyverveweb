@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { themeVars, type Project } from "@/lib/projects";
+import Image from "next/image";
+import { screens, themeVars, type Project } from "@/lib/projects";
 
 /** A card painted in the project's own colours, linking to its themed case-study page. */
 export default function ProjectCard({ project }: { project: Project }) {
   const [s1, s2] = project.stats;
+  const shot = screens[project.slug]?.find((s) => !s.mobile);
   return (
     <Link href={`/projects/${project.slug}`} className="proj-card" style={themeVars(project.theme)}>
       <div className="proj-banner" aria-hidden="true">
@@ -14,6 +16,9 @@ export default function ProjectCard({ project }: { project: Project }) {
             <i></i><i></i><i></i>
             <span className="pp-title">{project.name}</span>
           </div>
+          {shot ? (
+            <Image className="pp-shot" src={shot.src} alt="" width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, 380px" />
+          ) : (
           <div className="pp-body">
             <div className="pp-side">
               <span className="on"></span>
@@ -44,6 +49,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
 
