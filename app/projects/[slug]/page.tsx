@@ -69,6 +69,9 @@ export default async function ProjectPage({ params }: Props) {
       <Navbar current="projects" />
       <main className="pt" style={themeVars(project.theme)}>
         <header className="pt-hero">
+          <span className="pt-orb pt-orb-1" aria-hidden="true"></span>
+          <span className="pt-orb pt-orb-2" aria-hidden="true"></span>
+          <span className="pt-orb pt-orb-3" aria-hidden="true"></span>
           <div className="wrap">
             <nav className="crumbs hero-in" aria-label="Breadcrumb">
               <Link href="/">Home</Link>
@@ -94,7 +97,7 @@ export default async function ProjectPage({ params }: Props) {
           <div className="wrap">
             <div className="pt-stats">
               {project.stats.map((s, i) => (
-                <Reveal key={s.label} delay={i * 70} className="pt-stat">
+                <Reveal key={s.label} delay={i * 70} className={`pt-stat tone-${i % 3}`}>
                   <b>{s.value}</b>
                   <span>{s.label}</span>
                 </Reveal>
@@ -110,7 +113,7 @@ export default async function ProjectPage({ params }: Props) {
             </Reveal>
             <div className="pt-features">
               {project.features.map((f, i) => (
-                <Reveal key={f.title} delay={(i % 3) * 80} className="pt-feature">
+                <Reveal key={f.title} delay={(i % 3) * 80} className={`pt-feature tone-${i % 3}`}>
                   <span className="pt-num">{String(i + 1).padStart(2, "0")}</span>
                   <h3>{f.title}</h3>
                   <p>{f.body}</p>
