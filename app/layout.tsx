@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://techyverve.in"),
+  metadataBase: new URL("https://www.techyverve.in"),
   title: {
     default: "TechyVerve — Software Development Company in Pune | Web, Mobile & ERP",
     template: "%s | TechyVerve",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://techyverve.in",
+    url: "https://www.techyverve.in",
     siteName: "TechyVerve",
     title: "TechyVerve — Software Development Company in Pune",
     description:

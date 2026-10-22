@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${title} | TechyVerve`,
       description: project.tagline,
-      url: `https://techyverve.in/projects/${project.slug}`,
+      url: `https://www.techyverve.in/projects/${project.slug}`,
       type: "article",
     },
     twitter: { card: "summary_large_image", title, description: project.tagline },
@@ -50,15 +50,15 @@ export default async function ProjectPage({ params }: Props) {
       applicationCategory: "BusinessApplication",
       operatingSystem: project.platform,
       description: project.summary,
-      creator: { "@type": "Organization", name: "TechyVerve", url: "https://techyverve.in" },
+      creator: { "@type": "Organization", name: "TechyVerve", url: "https://www.techyverve.in" },
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://techyverve.in/" },
-        { "@type": "ListItem", position: 2, name: "Projects", item: "https://techyverve.in/projects" },
-        { "@type": "ListItem", position: 3, name: project.name, item: `https://techyverve.in/projects/${project.slug}` },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.techyverve.in/" },
+        { "@type": "ListItem", position: 2, name: "Projects", item: "https://www.techyverve.in/projects" },
+        { "@type": "ListItem", position: 3, name: project.name, item: `https://www.techyverve.in/projects/${project.slug}` },
       ],
     },
   ];

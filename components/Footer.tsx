@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import { services } from "@/lib/services";
 
 interface FooterProps {
   variant?: "full" | "simple";
@@ -35,12 +36,11 @@ export default function Footer({ variant = "full" }: FooterProps) {
         </div>
         <div className="foot-col">
           <h4>SERVICES</h4>
-          <Link href="/#services">Web & mobile development</Link>
-          <Link href="/#services">Backend & database design</Link>
-          <Link href="/#services">Cloud & AWS architecture</Link>
-          <Link href="/#services">Team as a service</Link>
-          <Link href="/#services">ERP software</Link>
-          <Link href="/#services">UI/UX & consulting</Link>
+          {services.slice(0, 7).map((s) => (
+            <Link key={s.slug} href={`/services/${s.slug}`}>
+              {s.title}
+            </Link>
+          ))}
         </div>
         <div className="foot-col">
           <h4>COMPANY</h4>

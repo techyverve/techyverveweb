@@ -1,6 +1,5 @@
 import Typewriter from "@/components/Typewriter";
 import Reveal from "@/components/Reveal";
-import { projects } from "@/lib/projects";
 
 const words = ["We", "turn", "under-built", "ideas", "into", "shipped", "software."];
 
@@ -31,7 +30,7 @@ export default function Hero() {
             something working, not just something wireframed.
           </p>
           <div className="hero-cta hero-in" style={{ animationDelay: "780ms" }}>
-            <a href="#projects" className="btn">
+            <a href="#projects" className="btn btn-solid">
               View our work
             </a>
             <a href="#contact-form" className="btn btn-ghost">
@@ -40,8 +39,8 @@ export default function Hero() {
           </div>
           <div className="hero-stats hero-in" style={{ animationDelay: "900ms" }}>
             <div className="hero-stat">
-              <b>{projects.length}+ products</b>
-              <span>Shipped & in use</span>
+              <b>ERP · Billing · POS</b>
+              <span>Built for Indian businesses</span>
             </div>
             <div className="hero-stat">
               <b>Web · Mobile</b>

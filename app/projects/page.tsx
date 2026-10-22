@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Projects | TechyVerve",
     description: "Billing, payroll, POS and mobile apps built by TechyVerve in Pune.",
-    url: "https://techyverve.in/projects",
+    url: "https://www.techyverve.in/projects",
   },
 };
 
@@ -24,7 +24,7 @@ export default function ProjectsPage() {
     itemListElement: projects.map((p, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://techyverve.in/projects/${p.slug}`,
+      url: `https://www.techyverve.in/projects/${p.slug}`,
       name: p.name,
     })),
   };

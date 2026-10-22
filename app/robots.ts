@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://techyverve.in/sitemap.xml",
+    sitemap: "https://www.techyverve.in/sitemap.xml",
   };
 }
