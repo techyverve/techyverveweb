@@ -7,13 +7,14 @@ interface RevealProps {
   as?: ElementType;
   className?: string;
   style?: React.CSSProperties;
+  /** Delay in ms before the entrance animation starts — use for staggering lists */
+  delay?: number;
 }
 
 /**
- * Wraps content so it fades/slides in the first time it scrolls into view,
- * mirroring the original IntersectionObserver-based .reveal behaviour.
+ * Wraps content so it fades/slides in the first time it scrolls into view.
  */
-export default function Reveal({ children, as: Tag = "div", className = "", style }: RevealProps) {
+export default function Reveal({ children, as: Tag = "div", className = "", style, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
 
@@ -30,7 +31,7 @@ export default function Reveal({ children, as: Tag = "div", className = "", styl
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
@@ -41,7 +42,7 @@ export default function Reveal({ children, as: Tag = "div", className = "", styl
     <Tag
       ref={ref}
       className={`reveal${inView ? " in" : ""}${className ? ` ${className}` : ""}`}
-      style={style}
+      style={delay ? { ...style, transitionDelay: `${delay}ms` } : style}
     >
       {children}
     </Tag>

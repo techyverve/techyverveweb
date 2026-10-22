@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { DM_Sans, JetBrains_Mono } from "next/font/google";
+import type { Viewport } from "next";
+import { Inter, Inter_Tight, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+
+// Display face — stands in for Satoshi, which isn't on Google Fonts
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-dm-sans",
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
 });
+
+// Used by the Hotel Billing and Hisaab case-study themes
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -30,7 +38,15 @@ export const metadata: Metadata = {
     "AWS cloud architecture services",
     "IT company Kharadi Pune",
     "custom software development India",
+    "billing software development Pune",
+    "payroll software India",
+    "restaurant POS software",
+    "React Native app development",
+    "Next.js development company",
   ],
+  applicationName: "TechyVerve",
+  category: "technology",
+  formatDetection: { telephone: true, email: true },
   authors: [{ name: "TechyVerve" }],
   alternates: {
     canonical: "/",
@@ -43,14 +59,12 @@ export const metadata: Metadata = {
     title: "TechyVerve — Software Development Company in Pune",
     description:
       "Web, mobile, backend, ERP, and cloud architecture, built by a software studio based in Kharadi, Pune.",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "TechyVerve" }],
-  },
+      },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "TechyVerve — Software Development Company in Pune",
     description:
       "Web, mobile, backend, ERP, and cloud architecture, built by a software studio based in Kharadi, Pune.",
-    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -64,12 +78,22 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${interTight.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <a href="#main" className="skip-link">Skip to content</a>
         <div className="grid-bg" aria-hidden="true"></div>
-        {children}
+        <div id="main">{children}</div>
       </body>
     </html>
   );

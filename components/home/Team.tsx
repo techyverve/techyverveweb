@@ -13,7 +13,7 @@ const team = [
     initial: "A",
     bg: "var(--teal-bg)",
     color: "var(--teal)",
-    name: "Sourabh",
+    name: "Abhi",
     tag: "frontend.dev",
     body: "Builds the interfaces, from first component to the pixel-level details that make a product feel finished.",
   },
