@@ -1,20 +1,19 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/lib/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://techyverve.in";
+  const now = new Date();
 
   return [
-    {
-      url: `${base}/`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${base}/career`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
+    { url: `${base}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/projects`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    ...projects.map((p) => ({
+      url: `${base}/projects/${p.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    { url: `${base}/career`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
   ];
 }

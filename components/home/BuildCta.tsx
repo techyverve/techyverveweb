@@ -33,7 +33,7 @@ export default function BuildCta() {
             next feature ships in days, not weeks.
           </p>
           <div className="hero-cta i4" style={{ justifyContent: "center" }}>
-            <a href="#contact" className="btn">
+            <a href="#contact-form" className="btn">
               Start a project
             </a>
             <Link href="/career" className="btn btn-glow">

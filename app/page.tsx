@@ -4,6 +4,7 @@ import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Services from "@/components/home/Services";
 import Process from "@/components/home/Process";
+import Projects from "@/components/home/Projects";
 import Team from "@/components/home/Team";
 import BuildCta from "@/components/home/BuildCta";
 import FAQ from "@/components/home/FAQ";
@@ -55,6 +56,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <Projects />
       <Process />
       <Team />
       <BuildCta />

@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { DM_Sans, JetBrains_Mono } from "next/font/google";
+import type { Viewport } from "next";
+import { DM_Sans, Inter, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-dm-sans",
 });
+
+// Inter and Plus Jakarta Sans are used by the project case-study themes
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -30,7 +36,15 @@ export const metadata: Metadata = {
     "AWS cloud architecture services",
     "IT company Kharadi Pune",
     "custom software development India",
+    "billing software development Pune",
+    "payroll software India",
+    "restaurant POS software",
+    "React Native app development",
+    "Next.js development company",
   ],
+  applicationName: "TechyVerve",
+  category: "technology",
+  formatDetection: { telephone: true, email: true },
   authors: [{ name: "TechyVerve" }],
   alternates: {
     canonical: "/",
@@ -43,14 +57,12 @@ export const metadata: Metadata = {
     title: "TechyVerve — Software Development Company in Pune",
     description:
       "Web, mobile, backend, ERP, and cloud architecture, built by a software studio based in Kharadi, Pune.",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "TechyVerve" }],
-  },
+      },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "TechyVerve — Software Development Company in Pune",
     description:
       "Web, mobile, backend, ERP, and cloud architecture, built by a software studio based in Kharadi, Pune.",
-    images: ["/logo.png"],
   },
   robots: {
     index: true,
@@ -64,12 +76,21 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { color: "#ffffff" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${dmSans.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <a href="#main" className="skip-link">Skip to content</a>
         <div className="grid-bg" aria-hidden="true"></div>
-        {children}
+        <div id="main">{children}</div>
       </body>
     </html>
   );
