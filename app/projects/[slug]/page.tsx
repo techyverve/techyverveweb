@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ScreenGallery from "@/components/ScreenGallery";
+import ScrollTop from "@/components/ScrollTop";
 import { getProject, projects, screens, themeVars } from "@/lib/projects";
 
 interface Props {
@@ -68,12 +69,10 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <ScrollTop />
       <Navbar current="projects" />
       <main className="pt" style={themeVars(project.theme)}>
         <header className="pt-hero">
-          <span className="pt-orb pt-orb-1" aria-hidden="true"></span>
-          <span className="pt-orb pt-orb-2" aria-hidden="true"></span>
-          <span className="pt-orb pt-orb-3" aria-hidden="true"></span>
           <div className="wrap">
             <nav className="crumbs hero-in" aria-label="Breadcrumb">
               <Link href="/">Home</Link>

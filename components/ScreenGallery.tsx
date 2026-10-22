@@ -31,7 +31,7 @@ export default function ScreenGallery({ name, screens }: { name: string; screens
   const current = desktop[active];
 
   return (
-    <div className={`gallery${phones.length ? " has-phone" : ""}`}>
+    <div className="gallery">
       {current && (
         <div className="gal-main">
           <div className="gal-frame">
@@ -75,14 +75,18 @@ export default function ScreenGallery({ name, screens }: { name: string; screens
         </div>
       )}
 
-      {phones.map((p) => (
-        <figure key={p.src} className="gal-phone">
-          <button type="button" className="phone-frame" onClick={() => setZoom(p)} aria-label={`Open full size: ${p.caption}`}>
-            <Image src={p.src} alt={p.alt} width={p.width} height={p.height} sizes="300px" />
-          </button>
-          <figcaption>{p.caption}</figcaption>
-        </figure>
-      ))}
+      {phones.length > 0 && (
+        <div className="gal-phones">
+          {phones.map((p) => (
+            <figure key={p.src} className="gal-phone">
+              <button type="button" className="phone-frame" onClick={() => setZoom(p)} aria-label={`Open full size: ${p.caption}`}>
+                <Image src={p.src} alt={p.alt} width={p.width} height={p.height} sizes="260px" />
+              </button>
+              <figcaption>{p.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
 
       <dialog ref={dialog} className="gal-zoom" onClose={() => setZoom(null)} onClick={() => setZoom(null)}>
         {zoom && (

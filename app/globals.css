@@ -2723,3 +2723,71 @@ nav.crumbs {
   display: inline-block;
   align-self: flex-start;
 }
+
+/* ==========================================================================
+   Round 6 — calmer project cards and headers, phone row
+   ========================================================================== */
+/* card banner: the app's own page colour instead of a gradient */
+.proj-banner {
+  background: var(--p-accent-soft);
+  border-bottom: 1px solid var(--p-line);
+}
+.pb-orb {
+  display: none;
+}
+.proj-card {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 14px 30px -24px rgba(0, 0, 0, 0.3);
+}
+.proj-card:hover {
+  box-shadow: 0 24px 50px -28px rgba(0, 0, 0, 0.35);
+}
+.proj-banner .proj-preview {
+  box-shadow: 0 -6px 24px -14px rgba(0, 0, 0, 0.3);
+}
+
+/* project page header looks like the sections below it */
+.pt-orb {
+  display: none;
+}
+.pt-hero {
+  padding: 56px 0 24px;
+}
+.pt-hero h1 {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--p-text);
+}
+.pt-btn {
+  background: var(--p-accent);
+  box-shadow: none;
+}
+.pt-btn-ghost {
+  background: var(--p-surface);
+}
+.pt-next {
+  background: var(--p-surface);
+  color: var(--p-text);
+  border: 1px solid var(--p-line);
+}
+.pt-next b {
+  color: var(--p-accent);
+}
+.gal-frame {
+  box-shadow: 0 20px 50px -30px rgba(0, 0, 0, 0.35);
+}
+
+/* phone screens sit in a row under the main screenshot */
+.gal-phones {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 240px));
+  justify-content: center;
+  gap: 32px;
+  margin-top: 12px;
+}
+.gal-phone {
+  position: static;
+}
+.phone-frame {
+  box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.45), inset 0 0 0 2px #333;
+}
