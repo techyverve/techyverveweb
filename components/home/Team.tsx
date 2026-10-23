@@ -1,56 +1,58 @@
 import Reveal from "@/components/Reveal";
 
-const team = [
+export const founders = [
   {
-    initial: "R",
-    bg: "var(--amber-bg)",
-    color: "var(--amber)",
-    name: "Rutik",
-    tag: "founder.lead",
+    name: "Rutik Shingote",
+    initials: "RS",
+    focus: "Architecture & delivery",
     body: "Leads architecture and client delivery, keeping every build on scope and on schedule.",
+    skills: ["System design", "Client delivery", "ERP"],
   },
   {
-    initial: "A",
-    bg: "var(--teal-bg)",
-    color: "var(--teal)",
-    name: "Abhi",
-    tag: "frontend.dev",
+    name: "Abhi Shinde",
+    initials: "AS",
+    focus: "Frontend & mobile",
     body: "Builds the interfaces, from first component to the pixel-level details that make a product feel finished.",
+    skills: ["React", "React Native", "UI/UX"],
   },
   {
-    initial: "S",
-    bg: "var(--amber-bg)",
-    color: "var(--amber)",
-    name: "Shree",
-    tag: "backend.dev",
+    name: "Shree Shingote",
+    initials: "SS",
+    focus: "Backend & cloud",
     body: "Owns APIs, infrastructure, and everything that has to keep working after launch day.",
+    skills: ["Node.js", "Databases", "AWS"],
   },
 ];
 
 export default function Team() {
   return (
-    <section id="team" className="section-alt viewport-section">
+    <section id="team" className="section-alt">
       <div className="wrap">
-        <Reveal className="section-head">
-          <div className="eyebrow">THE PEOPLE BEHIND IT</div>
-          <h2>Meet our team</h2>
+        <Reveal className="section-head" style={{ margin: "0 auto 56px", textAlign: "center" }}>
+          <div className="eyebrow" style={{ justifyContent: "center" }}>
+            THE FOUNDERS
+          </div>
+          <h2>Meet the founders</h2>
           <p>
-            Three people, one repo. Small enough to move fast, senior enough to trust with the
-            whole build.
+            The three people behind every TechyVerve product, from the first call to launch day and
+            beyond.
           </p>
         </Reveal>
-        <div className="team-grid">
-          {team.map((member) => (
-            <Reveal key={member.name} className="team-card">
-              <div
-                className="team-avatar"
-                style={{ background: member.bg, color: member.color }}
-              >
-                {member.initial}
+        <div className="founder-grid">
+          {founders.map((f, i) => (
+            <Reveal key={f.name} className="founder-card" delay={i * 120}>
+              <div className="founder-avatar" aria-hidden="true">
+                <span>{f.initials}</span>
               </div>
-              <h3>{member.name}</h3>
-              <span className="svc-tag">{member.tag}</span>
-              <p>{member.body}</p>
+              <span className="founder-role">Co-founder</span>
+              <h3>{f.name}</h3>
+              <p className="founder-focus">{f.focus}</p>
+              <p className="founder-body">{f.body}</p>
+              <ul className="founder-skills">
+                {f.skills.map((s) => (
+                  <li key={s}>{s}</li>
+                ))}
+              </ul>
             </Reveal>
           ))}
         </div>

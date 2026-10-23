@@ -7,7 +7,7 @@ import Process from "@/components/home/Process";
 import Projects from "@/components/home/Projects";
 import Industries from "@/components/home/Industries";
 import { services } from "@/lib/services";
-import Team from "@/components/home/Team";
+import Team, { founders } from "@/components/home/Team";
 import BuildCta from "@/components/home/BuildCta";
 import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
@@ -19,6 +19,7 @@ export default function Home() {
     "@id": "https://www.techyverve.in/#organization",
     name: "TechyVerve",
     alternateName: "Techyverve Software Studio",
+    founder: founders.map((f) => ({ "@type": "Person", name: f.name, jobTitle: `Co-founder, ${f.focus}` })),
     priceRange: "₹₹",
     geo: { "@type": "GeoCoordinates", latitude: 18.5515, longitude: 73.9348 },
     hasOfferCatalog: {
