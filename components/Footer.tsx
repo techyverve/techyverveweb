@@ -45,7 +45,7 @@ export default function Footer({ variant = "full" }: FooterProps) {
         <div className="foot-col">
           <h4>COMPANY</h4>
           <Link href="/#about">About us</Link>
-          <Link href="/#team">Our team</Link>
+          <Link href="/#team">Founders</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/career">Careers</Link>
           <a href="mailto:hr@techyverve.in">Contact</a>
