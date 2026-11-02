@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             <span className="pp-title">{project.name}</span>
           </div>
           {shot ? (
-            <Image className="pp-shot" src={shot.src} alt="" width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, 380px" />
+            <Image className="pp-shot" src={shot.src} alt={`${project.name} ${project.category} app screenshot`} width={shot.width} height={shot.height} sizes="(max-width: 640px) 90vw, 380px" />
           ) : (
           <div className="pp-body">
             <div className="pp-side">
