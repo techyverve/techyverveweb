@@ -24,7 +24,7 @@ export default function BuildCta() {
             </a>
           </div>
           <h2 className="build-title i2">
-            We build components,
+            We build components,{" "}
             <br />
             not just websites
           </h2>

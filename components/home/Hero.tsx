@@ -9,11 +9,11 @@ export default function Hero() {
       <div className="hero-glow" aria-hidden="true"></div>
       <div className="hero-grid">
         <div>
-          <div className="eyebrow hero-in" style={{ animationDelay: "0ms" }}>
-            <span className="pulse-dot" aria-hidden="true"></span>
-            SOFTWARE STUDIO — KHARADI, PUNE
-          </div>
-          <h1 aria-label="We turn under-built ideas into shipped software.">
+          <h1 aria-label="Software development company in Kharadi, Pune. We turn under-built ideas into shipped software.">
+            <span className="eyebrow hero-in" style={{ animationDelay: "0ms" }} aria-hidden="true">
+              <span className="pulse-dot"></span>
+              SOFTWARE DEVELOPMENT COMPANY — KHARADI, PUNE
+            </span>{" "}
             {words.map((w, i) => (
               <span
                 key={i}
