@@ -17,6 +17,20 @@ export const CONTENT_UPDATED = "2026-11-03";
  */
 export const SOCIAL_PROFILES: string[] = [];
 
+/**
+ * Street address line for the LocalBusiness schema (for example "Office 12, ABC Tower, EON IT Park
+ * Road"). Leave empty until you have the real one — it is only emitted when filled in, and it must
+ * match your Google Business Profile exactly.
+ */
+export const STREET_ADDRESS = "";
+
+/**
+ * Opening hours for the LocalBusiness schema, in schema.org format, for example
+ * [{ days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "19:00" }].
+ * Leave empty until the hours are confirmed — only emitted when filled in.
+ */
+export const OPENING_HOURS: { days: string[]; opens: string; closes: string }[] = [];
+
 interface PageMetaInput {
   /** Page title WITHOUT the brand suffix — the root layout template appends " | TechyVerve". */
   title: string;

@@ -12,7 +12,7 @@ import Team, { founders } from "@/components/home/Team";
 import BuildCta from "@/components/home/BuildCta";
 import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
-import { SITE_URL, SOCIAL_PROFILES } from "@/lib/site";
+import { OPENING_HOURS, SITE_URL, SOCIAL_PROFILES, STREET_ADDRESS } from "@/lib/site";
 
 // Title, description and social tags come from the root layout; the homepage only adds its canonical.
 export const metadata: Metadata = {
@@ -45,6 +45,7 @@ export default function Home() {
     address: {
       "@type": "PostalAddress",
       // Kharadi is a neighbourhood of Pune; the locality field should be the city
+      ...(STREET_ADDRESS ? { streetAddress: STREET_ADDRESS } : {}),
       addressLocality: "Pune",
       postalCode: "411014",
       addressRegion: "Maharashtra",
@@ -53,7 +54,17 @@ export default function Home() {
     email: "hr@techyverve.in",
     telephone: ["+91-72761-56939", "+91-91460-53881"],
     areaServed: [{ "@type": "City", name: "Pune" }, { "@type": "Country", name: "India" }],
-    // Only emitted once real profile URLs are added in lib/site.ts (an empty sameAs adds nothing)
+    // Only emitted once filled in lib/site.ts (empty values add nothing)
+    ...(OPENING_HOURS.length > 0
+      ? {
+          openingHoursSpecification: OPENING_HOURS.map((h) => ({
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: h.days,
+            opens: h.opens,
+            closes: h.closes,
+          })),
+        }
+      : {}),
     ...(SOCIAL_PROFILES.length > 0 ? { sameAs: SOCIAL_PROFILES } : {}),
     contactPoint: [
       {
