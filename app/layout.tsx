@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   // 140–155 chars. (Google ignores <meta name="keywords">, so none is emitted.)
   description:
-    "Software development company in Kharadi, Pune. We build web and mobile apps, ERP and billing software and AWS cloud systems. Get a free quote.",
+    "Software development company in Kharadi, Pune. We build web and mobile apps, ERP and billing software and AWS cloud systems in India. Get a free quote.",
   applicationName: "TechyVerve",
   category: "technology",
   formatDetection: { telephone: true, email: true },
