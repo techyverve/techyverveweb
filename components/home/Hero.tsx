@@ -53,7 +53,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <Reveal className="editor float">
+        <Reveal className="editor float" ariaHidden>
           <div className="editor-bar">
             <div className="dot" style={{ background: "#FF5F57" }}></div>
             <div className="dot" style={{ background: "#FEBC2E" }}></div>

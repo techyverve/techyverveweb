@@ -4,20 +4,15 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import { roles } from "@/lib/roles";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Careers — Software Developer Jobs in Kharadi, Pune",
+export const metadata: Metadata = pageMetadata({
+  title: "Careers — Developer Jobs in Kharadi, Pune",
   description:
-    "Open software developer jobs at TechyVerve, Kharadi, Pune: frontend (React), backend (Node.js) and mobile (React Native) roles plus internships. Apply online in two minutes.",
-  alternates: {
-    canonical: "/career",
-  },
-  openGraph: {
-    title: "Careers at TechyVerve, Pune",
-    description: "Frontend, backend and mobile developer jobs at a software studio in Kharadi, Pune.",
-    url: "https://www.techyverve.in/career",
-  },
-};
+    "Software developer jobs at TechyVerve, Kharadi, Pune: React frontend, Node.js backend and React Native mobile roles. Apply online in two minutes.",
+  path: "/career",
+  socialDescription: "Frontend, backend and mobile developer jobs at a software studio in Kharadi, Pune.",
+});
 
 const perks = [
   {
@@ -44,6 +39,9 @@ export default function CareerPage() {
     datePosted: "2026-10-01",
     validThrough: "2027-03-31",
     employmentType: "FULL_TIME",
+    // the application form is on this page, so candidates apply directly
+    directApply: true,
+    url: "https://www.techyverve.in/career",
     hiringOrganization: {
       "@type": "Organization",
       name: "TechyVerve",
@@ -54,7 +52,7 @@ export default function CareerPage() {
       "@type": "Place",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Kharadi, Pune",
+        addressLocality: "Pune",
         addressRegion: "Maharashtra",
         postalCode: "411014",
         addressCountry: "IN",
@@ -86,6 +84,7 @@ export default function CareerPage() {
 
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
+          <h2 className="sr-only">Open roles</h2>
           <div className="role-list">
             {roles.map((role, i) => (
               <Reveal key={role.title} className="role" delay={i * 80}>
@@ -103,10 +102,11 @@ export default function CareerPage() {
             ))}
           </div>
 
+          <h2 className="sr-only">Why work at TechyVerve</h2>
           <div className="perks">
             {perks.map((perk, i) => (
               <Reveal key={perk.title} className="perk" delay={i * 80}>
-                <h4>{perk.title}</h4>
+                <h3>{perk.title}</h3>
                 <p>{perk.body}</p>
               </Reveal>
             ))}

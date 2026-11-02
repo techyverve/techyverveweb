@@ -12,6 +12,13 @@ export default function Footer({ variant = "full" }: FooterProps) {
       <footer>
         <div className="foot-bottom foot-bottom-simple">
           <span>© {new Date().getFullYear()} TechyVerve · Kharadi, Pune</span>
+          {/* Project and career pages used to end in a footer with no site links at all */}
+          <div className="foot-contact-links">
+            <Link href="/">Home</Link>
+            <Link href="/services">Services</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/career">Careers</Link>
+          </div>
           <div className="foot-contact-links">
             <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>
             <a href="tel:+917276156939">+91 72761 56939</a>
@@ -35,15 +42,17 @@ export default function Footer({ variant = "full" }: FooterProps) {
           </p>
         </div>
         <div className="foot-col">
-          <h4>SERVICES</h4>
-          {services.slice(0, 7).map((s) => (
+          <h3>SERVICES</h3>
+          <Link href="/services">All services</Link>
+          {/* every service, so each one is reachable from every full-footer page */}
+          {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`}>
               {s.title}
             </Link>
           ))}
         </div>
         <div className="foot-col">
-          <h4>COMPANY</h4>
+          <h3>COMPANY</h3>
           <Link href="/#about">About us</Link>
           <Link href="/#team">Founders</Link>
           <Link href="/projects">Projects</Link>

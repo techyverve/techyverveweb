@@ -7,8 +7,9 @@ import Reveal from "@/components/Reveal";
 import ProjectCard from "@/components/ProjectCard";
 import { getService, services } from "@/lib/services";
 import { getProject } from "@/lib/projects";
+import { SITE_URL, pageMetadata } from "@/lib/site";
 
-const SITE = "https://www.techyverve.in";
+const SITE = SITE_URL;
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -22,17 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const svc = getService(slug);
   if (!svc) return {};
-  return {
-    title: svc.seoTitle,
-    description: svc.intro.slice(0, 158),
-    keywords: svc.keywords,
-    alternates: { canonical: `/services/${svc.slug}` },
-    openGraph: {
-      title: `${svc.seoTitle} | TechyVerve`,
-      description: svc.body,
-      url: `${SITE}/services/${svc.slug}`,
-    },
-  };
+  return pageMetadata({
+    title: svc.metaTitle,
+    description: svc.metaDescription,
+    path: `/services/${svc.slug}`,
+    socialDescription: svc.body,
+  });
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -41,7 +37,8 @@ export default async function ServicePage({ params }: Props) {
   if (!svc) notFound();
 
   const related = svc.projects.map(getProject).filter((p) => p !== undefined);
-  const others = services.filter((s) => s.slug !== svc.slug).slice(0, 4);
+  // Link to every other service so no service page is a dead end for crawlers or visitors
+  const others = services.filter((s) => s.slug !== svc.slug);
 
   const schema = [
     {
@@ -68,7 +65,7 @@ export default async function ServicePage({ params }: Props) {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE}/#services` },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE}/services` },
         { "@type": "ListItem", position: 3, name: svc.title, item: `${SITE}/services/${svc.slug}` },
       ],
     },
@@ -77,14 +74,14 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <Navbar />
+      <Navbar current="services" />
       <header className="hero hero-simple">
         <div className="hero-glow" aria-hidden="true"></div>
         <div className="hero-inner">
           <nav className="crumbs crumbs-site hero-in" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/#services">Services</Link>
+            <Link href="/services">Services</Link>
             <span aria-hidden="true">/</span>
             <span aria-current="page">{svc.title}</span>
           </nav>

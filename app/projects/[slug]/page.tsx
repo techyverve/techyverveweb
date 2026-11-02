@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import ScreenGallery from "@/components/ScreenGallery";
 import ScrollTop from "@/components/ScrollTop";
 import { getProject, projects, screens, themeVars } from "@/lib/projects";
+import { SITE_URL, metaDescription, pageMetadata } from "@/lib/site";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,20 +21,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  const title = `${project.name} — ${project.category}`;
-  return {
-    title,
-    description: `${project.tagline} ${project.summary}`.slice(0, 160),
-    keywords: project.keywords,
-    alternates: { canonical: `/projects/${project.slug}` },
-    openGraph: {
-      title: `${title} | TechyVerve`,
-      description: project.tagline,
-      url: `https://www.techyverve.in/projects/${project.slug}`,
-      type: "article",
-    },
-    twitter: { card: "summary_large_image", title, description: project.tagline },
-  };
+  return pageMetadata({
+    title: `${project.name} — ${project.category}`,
+    // hand-written where set; otherwise shortened on a word boundary (the old .slice(0, 160) cut mid-word)
+    description: project.metaDescription ?? metaDescription(`${project.tagline} ${project.summary}`),
+    path: `/projects/${project.slug}`,
+    socialDescription: project.tagline,
+  });
 }
 
 export default async function ProjectPage({ params }: Props) {
@@ -52,7 +46,8 @@ export default async function ProjectPage({ params }: Props) {
       applicationCategory: "BusinessApplication",
       operatingSystem: project.platform,
       description: project.summary,
-      creator: { "@type": "Organization", name: "TechyVerve", url: "https://www.techyverve.in" },
+      url: `${SITE_URL}/projects/${project.slug}`,
+      creator: { "@type": "Organization", name: "TechyVerve", url: SITE_URL },
       screenshot: (screens[project.slug] ?? []).map((sc) => `https://www.techyverve.in${sc.src}`),
     },
     {

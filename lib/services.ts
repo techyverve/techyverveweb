@@ -2,8 +2,12 @@ export interface Service {
   slug: string;
   tag: string;
   title: string;
-  /** Search-focused page title */
+  /** Search-focused page title, shown as the H1 */
   seoTitle: string;
+  /** <title> text without the brand suffix (the root layout template adds " | TechyVerve"); keep ≤ 47 chars */
+  metaTitle: string;
+  /** Hand-written meta description, 140–155 chars, a complete sentence (never sliced from other copy) */
+  metaDescription: string;
   body: string;
   intro: string;
   points: string[];
@@ -23,6 +27,9 @@ export const services: Service[] = [
     tag: "web.dev",
     title: "Web development",
     seoTitle: "Web Development Company in Pune",
+    metaTitle: "Web Development Company in Pune",
+    metaDescription:
+      "Custom websites and web apps in Next.js and React, built in Pune for speed, SEO and scale. Fixed-scope options, you own the code. Get a free quote.",
     body: "Custom websites and web applications on modern frameworks, tuned for Core Web Vitals and easy to maintain.",
     intro:
       "From marketing websites to full SaaS platforms, we build fast, SEO-ready web applications with Next.js and React — designed to rank, convert and scale without a rewrite.",
@@ -40,6 +47,8 @@ export const services: Service[] = [
     faqs: [
       { q: "How much does a website cost in Pune?", a: "A business website typically starts from a fixed price agreed after a short discovery call; web applications are quoted per sprint. We share a written estimate before any work begins." },
       { q: "Will my website be SEO-friendly?", a: "Yes. Every site ships with server rendering, metadata, structured data, a sitemap and fast load times, which are the technical foundations Google ranks on." },
+      { q: "How long does it take to build a website or web app?", a: "A marketing website usually ships in 2–4 weeks. A full web application with a backend typically takes 6–12 weeks, depending on scope. You get a sprint-by-sprint estimate before work starts." },
+      { q: "Do we own the source code?", a: "Yes. You own the source code and the infrastructure it runs on, and you can check progress on a staging environment at every stage." },
     ],
     icon: "M3 5h18v14H3zM3 9h18M7 7h.01M10 7h.01",
     size: "wide",
@@ -49,6 +58,9 @@ export const services: Service[] = [
     tag: "mobile.native",
     title: "Mobile apps",
     seoTitle: "Mobile App Development Company in Pune — Android & iOS",
+    metaTitle: "Mobile App Development Company in Pune",
+    metaDescription:
+      "Android and iOS app development in Pune with React Native and Expo. One codebase, Play Store and App Store publishing, post-launch support.",
     body: "Native-feeling iOS and Android apps from one React Native codebase.",
     intro:
       "We build Android and iOS apps with React Native and Expo — one codebase, native performance, and a release pipeline that gets you onto the Play Store and App Store.",
@@ -66,6 +78,8 @@ export const services: Service[] = [
     faqs: [
       { q: "Do you build for both Android and iOS?", a: "Yes. We use React Native, so one codebase ships to both stores, which roughly halves cost compared with two native apps." },
       { q: "Can you publish the app for us?", a: "Yes. We handle store listings, signing keys and review submissions for Google Play and the App Store." },
+      { q: "How long does it take to build a mobile app?", a: "A full app with a backend typically runs 6–12 weeks, depending on scope. We share a sprint-by-sprint estimate before any work starts." },
+      { q: "Can you build an app for our existing web product?", a: "Yes. For an existing web product we can ship a Trusted Web Activity app for Android, or build a React Native app that works with your existing backend." },
     ],
     icon: "M8 2h8a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM11 18h2",
     size: "tall",
@@ -75,6 +89,9 @@ export const services: Service[] = [
     tag: "erp.systems",
     title: "ERP & billing software",
     seoTitle: "Custom ERP, Billing & Payroll Software Development in India",
+    metaTitle: "Custom ERP & Billing Software in Pune",
+    metaDescription:
+      "Custom ERP, GST billing, payroll and POS software for Indian businesses, built in Pune. PF, ESI and TDS handled; you own the source code.",
     body: "Billing, payroll, inventory and operations software built around how your business actually runs.",
     intro:
       "Off-the-shelf ERP forces your team into someone else's process. We build billing, payroll, POS and inventory software that fits how you already work — with GST, PF, ESI and Indian compliance built in.",
@@ -92,6 +109,8 @@ export const services: Service[] = [
     faqs: [
       { q: "Is custom ERP better than Tally or off-the-shelf software?", a: "When your workflow is specific — table-wise restaurant billing, per-vehicle profit, QR attendance — custom software removes manual workarounds and you own it outright, with no per-user licence fees." },
       { q: "Can you handle GST and payroll compliance?", a: "Yes. Our billing and payroll products already handle CGST/SGST, PF, ESI, professional tax and TDS." },
+      { q: "Can you build restaurant billing or POS software?", a: "Yes. Our Hotel Billing product covers table-wise order taking, thermal bill printing and optional GST for restaurants, and we can tailor a similar system to your outlets." },
+      { q: "How long does custom billing or payroll software take?", a: "A full application with a backend typically takes 6–12 weeks, depending on scope. We agree the scope and a sprint plan before building." },
     ],
     icon: "M4 4h16v16H4zM4 10h16M10 10v10",
     size: "",
@@ -101,6 +120,9 @@ export const services: Service[] = [
     tag: "backend.api",
     title: "Backend & APIs",
     seoTitle: "Backend & API Development Services — Node.js, Supabase",
+    metaTitle: "Node.js Backend & API Development Company",
+    metaDescription:
+      "Secure Node.js and Supabase backends and REST APIs with authentication, roles and row-level security from day one. Built by senior engineers in Pune.",
     body: "Scalable server-side systems that hold up under real traffic, not just demos.",
     intro:
       "Secure, well-documented APIs and backend services in Node.js and Supabase, with authentication, role-based access and row-level security from day one.",
@@ -117,6 +139,8 @@ export const services: Service[] = [
     projects: ["payroll", "hotel-billing"],
     faqs: [
       { q: "Which backend stack do you use?", a: "Mostly Node.js and TypeScript with PostgreSQL or Supabase, chosen for speed of delivery and a large hiring pool if you later build an in-house team." },
+      { q: "Do you offer fixed-price API development?", a: "Fixed-scope and fixed-price options are available for well-defined work. Larger or evolving products are quoted per sprint." },
+      { q: "Can you integrate payments, SMS and email?", a: "Yes. Payment, SMS and email integrations are part of what we build, including instant SMS receipts in our Pigmy Pro collection app." },
     ],
     icon: "M4 6h16M4 12h16M4 18h16M8 6v.01M8 12v.01M8 18v.01",
     size: "",
@@ -126,6 +150,9 @@ export const services: Service[] = [
     tag: "cloud.aws",
     title: "Cloud & AWS",
     seoTitle: "AWS Cloud Architecture & DevOps Services in Pune",
+    metaTitle: "AWS Cloud Architecture & DevOps in Pune",
+    metaDescription:
+      "AWS cloud architecture, CI/CD and DevOps for Indian businesses: EC2, S3, RDS, Lambda and VPC sized for your traffic, with cost reviews and monitoring.",
     body: "EC2, S3, RDS, Lambda and VPC setups sized for the traffic you have, with room to scale.",
     intro:
       "We design cloud infrastructure that is secure, monitored and right-sized — so you are not paying for servers you do not need, and not falling over when traffic spikes.",
@@ -142,6 +169,8 @@ export const services: Service[] = [
     projects: ["payroll", "earthmovers-billing"],
     faqs: [
       { q: "Can you reduce our cloud bill?", a: "Often, yes. A cost review usually finds over-sized instances, idle resources and missing caching that can be fixed without downtime." },
+      { q: "Do you only work with AWS?", a: "AWS is our main cloud. We also deploy to Vercel, Netlify and Cloudflare, and use Supabase for managed PostgreSQL." },
+      { q: "Can you migrate us from shared hosting?", a: "Yes. We move sites and apps from shared hosting to right-sized cloud infrastructure with backups, monitoring and automated deploys." },
     ],
     icon: "M7 18a4 4 0 0 1-.6-7.96A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z",
     size: "",
@@ -151,6 +180,9 @@ export const services: Service[] = [
     tag: "db.design",
     title: "Database design",
     seoTitle: "Database Design & Optimisation — PostgreSQL, MongoDB",
+    metaTitle: "Database Design & Optimisation Services",
+    metaDescription:
+      "PostgreSQL and MongoDB database design, indexing, migrations and optimisation. Move off Excel or legacy systems to schemas that stay fast as data grows.",
     body: "Schemas, indexing and migrations for SQL and NoSQL that stay fast as data grows.",
     intro:
       "A good schema is the difference between a report that loads instantly and one that times out. We design, migrate and tune PostgreSQL and MongoDB databases for real workloads.",
@@ -166,6 +198,8 @@ export const services: Service[] = [
     projects: ["payroll", "hotel-billing"],
     faqs: [
       { q: "Can you move our data out of Excel?", a: "Yes. We regularly migrate spreadsheets and legacy databases into structured PostgreSQL with validation and history." },
+      { q: "Which databases do you work with?", a: "Mainly PostgreSQL, including Supabase, and MongoDB." },
+      { q: "Can you speed up a slow database?", a: "Often, yes. Indexing, query tuning and schema changes frequently fix slow reports, and we deliver the changes as tested migrations." },
     ],
     icon: "M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3",
     size: "",
@@ -175,6 +209,9 @@ export const services: Service[] = [
     tag: "uiux.design",
     title: "UI/UX design",
     seoTitle: "UI/UX Design Services in Pune — Apps & Web",
+    metaTitle: "UI/UX Design Company in Pune",
+    metaDescription:
+      "UI/UX design for web and mobile apps in Pune: user flows, Figma prototypes, design systems and accessibility reviews from a team that also builds.",
     body: "Interfaces designed around real user flows, from wireframe to developer-ready design system.",
     intro:
       "We design interfaces people can use on the first try — following Apple's Human Interface Guidelines and Material principles, with accessible contrast and large tap targets.",
@@ -190,6 +227,8 @@ export const services: Service[] = [
     projects: ["hotel-billing", "hisaab", "pigmy-pro"],
     faqs: [
       { q: "Do you only design, or also build?", a: "Both. Because the same team designs and builds, designs are realistic to implement and nothing is lost in hand-off." },
+      { q: "What do we receive at the end of a design engagement?", a: "Wireframes, interactive prototypes, visual designs and, where needed, a design system and component library your developers can build from." },
+      { q: "Do you design for accessibility?", a: "Yes. We design with accessible colour contrast and large tap targets, and offer accessibility reviews of existing interfaces." },
     ],
     icon: "M12 2a10 10 0 1 0 0 20c1 0 1.5-.7 1.5-1.5 0-.4-.2-.8-.4-1.1-.3-.3-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a6 6 0 0 0 6-6C22 6 17.5 2 12 2zM7.5 11h.01M10.5 7h.01M15 7.5h.01",
     size: "wide",
@@ -199,6 +238,9 @@ export const services: Service[] = [
     tag: "team.staffing",
     title: "Team as a service",
     seoTitle: "Hire Dedicated Developers in Pune — Team as a Service",
+    metaTitle: "Hire Dedicated Developers in Pune",
+    metaDescription:
+      "Hire dedicated React, Node.js and React Native developers in Pune. Embed one engineer or a full squad in your tools on a simple monthly engagement.",
     body: "Embed one engineer or a full squad into your team on a monthly retainer.",
     intro:
       "Need capacity without a hiring cycle? Our engineers join your stand-ups, use your tools and ship to your repo, on a simple monthly engagement.",
@@ -213,6 +255,8 @@ export const services: Service[] = [
     projects: [],
     faqs: [
       { q: "How fast can a developer start?", a: "Usually within one to two weeks of agreeing scope." },
+      { q: "Can your developers work in our tools?", a: "Yes. They work in your Git, Jira and Slack and ship to your repository." },
+      { q: "What roles can you provide?", a: "Dedicated React, Node.js and React Native developers, or a full squad with a tech lead, on flexible monthly engagements." },
     ],
     icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8",
     size: "",
@@ -222,6 +266,9 @@ export const services: Service[] = [
     tag: "consulting",
     title: "Consulting",
     seoTitle: "Software & IT Consulting Services in Pune",
+    metaTitle: "Software & IT Consulting Services in Pune",
+    metaDescription:
+      "Software and IT consulting in Pune: architecture reviews, code and cost audits, tech stack selection and a scoped, prioritised product roadmap.",
     body: "Architecture reviews, stack audits and roadmap planning for teams deciding what to build next.",
     intro:
       "Before you spend on development, get a clear plan. We review architecture, audit code and costs, and turn ideas into a scoped, prioritised roadmap.",
@@ -236,6 +283,8 @@ export const services: Service[] = [
     projects: [],
     faqs: [
       { q: "Can you review code another agency wrote?", a: "Yes. We produce a written report covering risks, quick wins and a plan, whether or not we continue the build." },
+      { q: "What do we get from a consulting engagement?", a: "A written report with risks, quick wins and a prioritised roadmap, plus scoped estimates for what to build next." },
+      { q: "Do consulting clients have to hire you to build?", a: "No. The report is yours whether or not we continue the build." },
     ],
     icon: "M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z",
     size: "",

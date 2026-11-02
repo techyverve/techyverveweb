@@ -6,12 +6,12 @@ import Logo from "@/components/Logo";
 
 interface NavbarProps {
   /** Which page this navbar is rendered on, so the right link can be highlighted */
-  current?: "home" | "career" | "projects";
+  current?: "home" | "career" | "projects" | "services";
 }
 
 const links = [
   { href: "/#about", label: "About" },
-  { href: "/#services", label: "Services" },
+  { href: "/services", label: "Services", key: "services" },
   { href: "/projects", label: "Projects", key: "projects" },
   { href: "/#team", label: "Founders" },
   { href: "/career", label: "Career", key: "career" },

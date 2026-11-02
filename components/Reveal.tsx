@@ -9,12 +9,14 @@ interface RevealProps {
   style?: React.CSSProperties;
   /** Delay in ms before the entrance animation starts — use for staggering lists */
   delay?: number;
+  /** Hide purely decorative content (fake editor windows, mock UIs) from assistive tech */
+  ariaHidden?: boolean;
 }
 
 /**
  * Wraps content so it fades/slides in the first time it scrolls into view.
  */
-export default function Reveal({ children, as: Tag = "div", className = "", style, delay = 0 }: RevealProps) {
+export default function Reveal({ children, as: Tag = "div", className = "", style, delay = 0, ariaHidden }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
 
@@ -43,6 +45,7 @@ export default function Reveal({ children, as: Tag = "div", className = "", styl
       ref={ref}
       className={`reveal${inView ? " in" : ""}${className ? ` ${className}` : ""}`}
       style={delay ? { ...style, transitionDelay: `${delay}ms` } : style}
+      aria-hidden={ariaHidden ? true : undefined}
     >
       {children}
     </Tag>
