@@ -66,7 +66,7 @@ export default function ScreenGallery({ name, screens }: { name: string; screens
                   className={i === active ? "on" : ""}
                   onClick={() => { setActive(i); setAuto(false); }}
                 >
-                  <Image src={s.src} alt="" width={s.width} height={s.height} sizes="200px" />
+                  <Image src={s.src} alt={s.alt} width={s.width} height={s.height} sizes="200px" />
                   <span>{s.caption.split(" — ")[0]}</span>
                 </button>
               ))}
