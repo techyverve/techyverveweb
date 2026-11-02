@@ -30,6 +30,8 @@ export interface Project {
   platform: string;
   tagline: string;
   summary: string;
+  /** Optional hand-written meta description (140–155 chars); falls back to tagline + summary, shortened */
+  metaDescription?: string;
   stats: { value: string; label: string }[];
   features: { title: string; body: string }[];
   stack: string[];
@@ -79,6 +81,8 @@ export const projects: Project[] = [
     tagline: "Multi-tenant payroll with QR attendance and one-click payslips.",
     summary:
       "A super admin onboards firms; each firm gets an isolated HR workspace for attendance, deduction rules and monthly payslips — with PF, ESI, PT and TDS handled out of the box.",
+    metaDescription:
+      "Multi-tenant payroll SaaS with QR attendance and one-click payslips. Isolated HR workspace per firm, with PF, ESI, PT and TDS handled out of the box.",
     stats: [
       { value: "5", label: "Attendance states" },
       { value: "3", label: "Payslip templates" },
@@ -110,6 +114,8 @@ export const projects: Project[] = [
     tagline: "BillMaster — billing, fleet expenses and profit tracking for earthmoving contractors.",
     summary:
       "Built for JCB and earthmover businesses: bill customers per job, track fuel and vehicle expenses, follow pending payments and see net profit per vehicle.",
+    metaDescription:
+      "BillMaster: billing, fleet expenses and profit tracking for JCB and earthmover businesses. Bill per job, follow payments and see net profit per vehicle.",
     stats: [
       { value: "Per vehicle", label: "Expense & profit view" },
       { value: "Live", label: "Pending bill tracking" },
@@ -141,6 +147,8 @@ export const projects: Project[] = [
     tagline: "Daily deposit collection app for pigmy agents of banks and credit societies.",
     summary:
       "Agents search an account, collect the daily deposit, confirm with a PIN and the customer gets an SMS receipt — with history, alerts and a help desk in one mobile app.",
+    metaDescription:
+      "Daily deposit collection app for pigmy agents of banks and credit societies. Collect, confirm with a PIN, and the customer gets an SMS receipt.",
     stats: [
       { value: "PIN", label: "Confirmed submissions" },
       { value: "SMS", label: "Instant receipts" },

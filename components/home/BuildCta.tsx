@@ -44,7 +44,8 @@ export default function BuildCta() {
             </Link>
           </div>
 
-          <div className="mockup-wrap i5">
+          {/* decorative UI mock-up: hidden from assistive tech so its placeholder text is not read as content */}
+          <div className="mockup-wrap i5" aria-hidden="true">
             <div className="glow" aria-hidden="true"></div>
             <div className="mockup-frame">
               <div className="mockup">

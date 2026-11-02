@@ -77,10 +77,13 @@ console (useful for testing the form/UI without an email provider yet).
 
 ## SEO
 
-- `app/layout.tsx` sets a title template, meta description, Open Graph/Twitter
-  tags, and `robots` directives targeting software-development-in-Pune search
-  terms — edit the `keywords`/`description` strings there as your positioning
-  changes.
+- See [`seo/README.md`](seo/README.md) for where each SEO setting lives, the rules to
+  keep it healthy, keyword clusters, article briefs and the AI-visibility plan.
+- `app/layout.tsx` sets the title template, default description and robots
+  directives. Inner pages build their metadata with `pageMetadata()` from
+  `lib/site.ts` so Open Graph / Twitter tags stay complete.
+- `app/services/page.tsx` is the `/services` hub; `app/llms.txt/route.ts` serves
+  `/llms.txt` for AI assistants.
 - `app/page.tsx` embeds `ProfessionalService` structured data (name, address,
   phone numbers, email) so Google can show a knowledge-panel-style listing.
 - `components/home/FAQ.tsx` embeds `FAQPage` structured data, which makes the

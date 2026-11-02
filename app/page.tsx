@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/home/Hero";
@@ -11,6 +12,12 @@ import Team, { founders } from "@/components/home/Team";
 import BuildCta from "@/components/home/BuildCta";
 import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
+import { SITE_URL, SOCIAL_PROFILES } from "@/lib/site";
+
+// Title, description and social tags come from the root layout; the homepage only adds its canonical.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   const orgSchema = {
@@ -37,15 +44,17 @@ export default function Home() {
       "Software development company in Kharadi, Pune building web apps, mobile apps, ERP software, database systems, and AWS cloud architecture.",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Kharadi, Pune",
+      // Kharadi is a neighbourhood of Pune; the locality field should be the city
+      addressLocality: "Pune",
       postalCode: "411014",
       addressRegion: "Maharashtra",
       addressCountry: "IN",
     },
     email: "hr@techyverve.in",
     telephone: ["+91-72761-56939", "+91-91460-53881"],
-    areaServed: "IN",
-    sameAs: [],
+    areaServed: [{ "@type": "City", name: "Pune" }, { "@type": "Country", name: "India" }],
+    // Only emitted once real profile URLs are added in lib/site.ts (an empty sameAs adds nothing)
+    ...(SOCIAL_PROFILES.length > 0 ? { sameAs: SOCIAL_PROFILES } : {}),
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -62,11 +71,21 @@ export default function Home() {
     ],
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: "TechyVerve",
+    inLanguage: "en-IN",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([orgSchema, websiteSchema]) }}
       />
       <Navbar current="home" />
       <Hero />

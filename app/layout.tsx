@@ -23,32 +23,19 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.techyverve.in"),
   title: {
-    default: "TechyVerve — Software Development Company in Pune | Web, Mobile & ERP",
+    // ≤ 60 chars so it is not truncated in results; inner pages use the template below
+    default: "Software Development Company in Pune | TechyVerve",
     template: "%s | TechyVerve",
   },
+  // 140–155 chars. (Google ignores <meta name="keywords">, so none is emitted.)
   description:
-    "TechyVerve is a software development company in Kharadi, Pune building web apps, mobile apps, ERP software, AWS cloud architecture, and database systems for businesses across India.",
-  keywords: [
-    "software development company Pune",
-    "web development company Kharadi",
-    "mobile app development Pune",
-    "ERP software development India",
-    "AWS cloud architecture services",
-    "IT company Kharadi Pune",
-    "custom software development India",
-    "billing software development Pune",
-    "payroll software India",
-    "restaurant POS software",
-    "React Native app development",
-    "Next.js development company",
-  ],
+    "Software development company in Kharadi, Pune. We build web apps, mobile apps, ERP and billing software, and AWS cloud systems for Indian businesses.",
   applicationName: "TechyVerve",
   category: "technology",
   formatDetection: { telephone: true, email: true },
   authors: [{ name: "TechyVerve" }],
-  alternates: {
-    canonical: "/",
-  },
+  // No site-wide canonical here: every page sets its own (a canonical of "/" inherited by a page
+  // that forgot to set one would tell Google that page is a duplicate of the homepage).
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -86,7 +73,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmSans.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${dmSans.variable} ${jakarta.variable} ${jetbrainsMono.variable}`}>
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
         <div className="grid-bg" aria-hidden="true"></div>
