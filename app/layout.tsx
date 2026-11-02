@@ -14,10 +14,12 @@ const dmSans = DM_Sans({
 // Inter and Plus Jakarta Sans are used by the project case-study themes
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
 
+// JetBrains Mono is a variable font: omitting `weight` loads one file covering all weights,
+// which also avoids the Turbopack "next/font/google queries have exactly one entry" build error.
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500"],
   variable: "--font-jetbrains-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
