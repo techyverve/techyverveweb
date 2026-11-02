@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
         <div className="grid-bg" aria-hidden="true"></div>
-        <div id="main">{children}</div>
+        <main id="main">{children}</main>
       </body>
     </html>
   );

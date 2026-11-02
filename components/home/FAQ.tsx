@@ -46,7 +46,7 @@ export default function FAQ() {
         </div>
       </div>
 
-      {/* FAQPage structured data — eligible for FAQ rich results in Google search */}
+      {/* FAQPage structured data — Google now shows FAQ rich results mainly for government and health sites, so this mainly helps AI assistants and answer engines understand the page */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

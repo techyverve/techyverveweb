@@ -2909,3 +2909,27 @@ nav.crumbs {
     margin: 0 auto;
   }
 }
+
+/* long-form text pages (privacy policy) */
+.legal {
+  max-width: 760px;
+}
+.legal h2 {
+  font-size: 22px;
+  margin: 36px 0 10px;
+}
+.legal p,
+.legal li {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.legal p {
+  margin: 0 0 14px;
+}
+.legal ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+.legal a {
+  color: var(--amber);
+}

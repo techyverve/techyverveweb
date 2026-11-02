@@ -35,7 +35,10 @@ export default function CareerPage() {
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: role.title,
-    description: `<p>${role.title} at TechyVerve, a software studio in Kharadi, Pune. Work on web, mobile and ERP products for real businesses.</p>`,
+    description:
+      `<p>${role.summary}</p>` +
+      `<p>TechyVerve is a software studio in Kharadi, Pune. We are a small team where you ship features end to end.</p>` +
+      `<p><strong>What you will do</strong></p><ul>${role.responsibilities.map((r) => `<li>${r}</li>`).join("")}</ul>`,
     datePosted: "2026-10-01",
     validThrough: "2027-03-31",
     employmentType: "FULL_TIME",

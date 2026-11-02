@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "ok" | "err";
@@ -106,6 +107,10 @@ export default function ContactForm({ type = "contact", roles = [], defaultRole 
           disabled={busy}
         ></textarea>
       </div>
+      <p style={{ fontSize: 13, color: "var(--text-muted)", margin: "0 0 14px" }}>
+        By sending this form you agree to us using your details to reply to you, as described in our{" "}
+        <Link href="/privacy">privacy policy</Link>.
+      </p>
       <button type="submit" className="btn btn-solid" disabled={busy}>
         {busy ? "Sending…" : isApp ? "Submit application" : "Send message"}
       </button>

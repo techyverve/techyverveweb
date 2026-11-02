@@ -18,6 +18,7 @@ export default function Footer({ variant = "full" }: FooterProps) {
             <Link href="/services">Services</Link>
             <Link href="/projects">Projects</Link>
             <Link href="/career">Careers</Link>
+            <Link href="/privacy">Privacy</Link>
           </div>
           <div className="foot-contact-links">
             <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>
@@ -64,7 +65,9 @@ export default function Footer({ variant = "full" }: FooterProps) {
       </div>
       <div className="foot-bottom">
         <span>© {new Date().getFullYear()} TechyVerve · Kharadi, Pune</span>
-        <span>hr@techyverve.in</span>
+        <span>
+          <Link href="/privacy">Privacy Policy</Link> · hr@techyverve.in
+        </span>
       </div>
     </footer>
   );

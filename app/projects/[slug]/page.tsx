@@ -7,6 +7,7 @@ import Reveal from "@/components/Reveal";
 import ScreenGallery from "@/components/ScreenGallery";
 import ScrollTop from "@/components/ScrollTop";
 import { getProject, projects, screens, themeVars } from "@/lib/projects";
+import { services } from "@/lib/services";
 import { SITE_URL, metaDescription, pageMetadata } from "@/lib/site";
 
 interface Props {
@@ -37,6 +38,8 @@ export default async function ProjectPage({ params }: Props) {
 
   const index = projects.indexOf(project);
   const next = projects[(index + 1) % projects.length];
+  // Services that list this project as a case study, so project pages link back to them
+  const relatedServices = services.filter((s) => s.projects.includes(project.slug));
 
   const schema = [
     {
@@ -66,7 +69,8 @@ export default async function ProjectPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <ScrollTop />
       <Navbar current="projects" />
-      <main className="pt" style={themeVars(project.theme)}>
+      {/* a div, not <main>: the root layout already provides the page's single <main> landmark */}
+      <div className="pt" style={themeVars(project.theme)}>
         <header className="pt-hero">
           <div className="wrap">
             <nav className="crumbs hero-in" aria-label="Breadcrumb">
@@ -145,6 +149,23 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </section>
 
+        {relatedServices.length > 0 && (
+          <section className="pt-section">
+            <div className="wrap">
+              <Reveal className="pt-stack">
+                <h2 className="pt-h2">Related services</h2>
+                <div className="pt-tags">
+                  {relatedServices.map((s) => (
+                    <Link key={s.slug} href={`/services/${s.slug}`}>
+                      <span>{s.title}</span>
+                    </Link>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </section>
+        )}
+
         <section className="pt-section pt-last">
           <div className="wrap">
             <Reveal>
@@ -155,7 +176,7 @@ export default async function ProjectPage({ params }: Props) {
             </Reveal>
           </div>
         </section>
-      </main>
+      </div>
       <Footer variant="simple" />
     </>
   );
