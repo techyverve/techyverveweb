@@ -26,8 +26,8 @@ export default function Hero() {
             ))}
           </h1>
           <p className="lede hero-in" style={{ animationDelay: "650ms" }}>
-            TechyVerve designs and builds web, mobile, and backend systems for teams who need
-            something working, not just something wireframed.
+            TechyVerve is a software development company in Pune. We design and build web, mobile,
+            and backend systems for teams who need something working, not just something wireframed.
           </p>
           <div className="hero-cta hero-in" style={{ animationDelay: "780ms" }}>
             <a href="#projects" className="btn btn-solid">
