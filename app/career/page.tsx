@@ -3,8 +3,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
-import { roles } from "@/lib/roles";
-import { pageMetadata } from "@/lib/site";
+import { JOBS_POSTED, JOBS_VALID_THROUGH, roles } from "@/lib/roles";
+import { CONTACT_EMAIL, pageMetadata } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
   title: "Careers — Developer Jobs in Kharadi, Pune",
@@ -39,8 +39,8 @@ export default function CareerPage() {
       `<p>${role.summary}</p>` +
       `<p>TechyVerve is a software studio in Kharadi, Pune. We are a small team where you ship features end to end.</p>` +
       `<p><strong>What you will do</strong></p><ul>${role.responsibilities.map((r) => `<li>${r}</li>`).join("")}</ul>`,
-    datePosted: "2026-10-01",
-    validThrough: "2027-03-31",
+    datePosted: JOBS_POSTED,
+    validThrough: JOBS_VALID_THROUGH,
     employmentType: "FULL_TIME",
     // the application form is on this page, so candidates apply directly
     directApply: true,
@@ -126,7 +126,7 @@ export default function CareerPage() {
             <h2>Send us your application</h2>
             <p>
               Takes two minutes. Share a resume or portfolio link and we&apos;ll reply within a few
-              days. Prefer email? Write to <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>.
+              days. Prefer email? Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
             </p>
           </Reveal>
           <Reveal>

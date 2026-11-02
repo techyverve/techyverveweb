@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 import { services } from "@/lib/services";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 interface FooterProps {
   variant?: "full" | "simple";
@@ -21,7 +22,7 @@ export default function Footer({ variant = "full" }: FooterProps) {
             <Link href="/privacy">Privacy</Link>
           </div>
           <div className="foot-contact-links">
-            <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
             <a href="tel:+917276156939">+91 72761 56939</a>
             <a href="tel:+919146053881">+91 91460 53881</a>
           </div>
@@ -58,7 +59,7 @@ export default function Footer({ variant = "full" }: FooterProps) {
           <Link href="/#team">Founders</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/career">Careers</Link>
-          <a href="mailto:hr@techyverve.in">Contact</a>
+          <a href={`mailto:${CONTACT_EMAIL}`}>Contact</a>
           <a href="tel:+917276156939">+91 72761 56939</a>
           <a href="tel:+919146053881">+91 91460 53881</a>
         </div>
@@ -66,7 +67,7 @@ export default function Footer({ variant = "full" }: FooterProps) {
       <div className="foot-bottom">
         <span>© {new Date().getFullYear()} TechyVerve · Kharadi, Pune</span>
         <span>
-          <Link href="/privacy">Privacy Policy</Link> · hr@techyverve.in
+          <Link href="/privacy">Privacy Policy</Link> · {CONTACT_EMAIL}
         </span>
       </div>
     </footer>

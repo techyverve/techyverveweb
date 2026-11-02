@@ -4,6 +4,13 @@ export const SITE_URL = "https://www.techyverve.in";
 export const SITE_NAME = "TechyVerve";
 
 /**
+ * Public contact email, shown in the footer, forms, privacy page, llms.txt and structured data.
+ * It is currently the HR mailbox; set it to a sales address (for example hello@techyverve.in) once
+ * that mailbox exists and every mention updates at once.
+ */
+export const CONTACT_EMAIL = "hr@techyverve.in";
+
+/**
  * Date the site content was last meaningfully changed. Used for sitemap <lastmod>, so bump it when
  * you edit page content (a lastmod that changes on every build teaches Google to ignore it).
  */

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { CONTACT_EMAIL } from "@/lib/site";
 
 interface ContactPayload {
   type?: "contact" | "application";
@@ -43,7 +44,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
-  const toEmail = process.env.CONTACT_TO_EMAIL || "hr@techyverve.in";
+  const toEmail = process.env.CONTACT_TO_EMAIL || CONTACT_EMAIL;
   const subject = isApplication
     ? `Job application: ${role} — ${name}`
     : `New enquiry from ${name}`;
@@ -95,7 +96,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.error("Contact form send failed:", err);
     return NextResponse.json(
-      { error: "We couldn't send your message right now. Please email hr@techyverve.in directly." },
+      { error: `We couldn't send your message right now. Please email ${CONTACT_EMAIL} directly.` },
       { status: 502 }
     );
   }

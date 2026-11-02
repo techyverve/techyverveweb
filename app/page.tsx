@@ -12,7 +12,7 @@ import Team, { founders } from "@/components/home/Team";
 import BuildCta from "@/components/home/BuildCta";
 import FAQ from "@/components/home/FAQ";
 import Contact from "@/components/home/Contact";
-import { OPENING_HOURS, SITE_URL, SOCIAL_PROFILES, STREET_ADDRESS } from "@/lib/site";
+import { CONTACT_EMAIL, OPENING_HOURS, SITE_URL, SOCIAL_PROFILES, STREET_ADDRESS } from "@/lib/site";
 
 // Title, description and social tags come from the root layout; the homepage only adds its canonical.
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function Home() {
       addressRegion: "Maharashtra",
       addressCountry: "IN",
     },
-    email: "hr@techyverve.in",
+    email: CONTACT_EMAIL,
     telephone: ["+91-72761-56939", "+91-91460-53881"],
     areaServed: [{ "@type": "City", name: "Pune" }, { "@type": "Country", name: "India" }],
     // Only emitted once filled in lib/site.ts (empty values add nothing)

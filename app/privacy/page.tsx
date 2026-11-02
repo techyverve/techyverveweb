@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SITE_URL, pageMetadata } from "@/lib/site";
+import { CONTACT_EMAIL, SITE_URL, pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata({
   title: "Privacy Policy",
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           <p>
             TechyVerve is a software studio based in Kharadi, Pune, Maharashtra, India. This policy
             covers the website at {SITE_URL.replace("https://", "")}. You can reach us at{" "}
-            <a href="mailto:hr@techyverve.in">hr@techyverve.in</a>.
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
           </p>
 
           <h2>What we collect</h2>
@@ -96,7 +96,7 @@ export default function PrivacyPage() {
           <h2>Your choices</h2>
           <p>
             You can ask us to tell you what we hold about you, correct it, or delete it. Email{" "}
-            <a href="mailto:hr@techyverve.in">hr@techyverve.in</a> from the address you used on the
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> from the address you used on the
             form and we will respond within a reasonable time. You may also withdraw consent to us
             contacting you whenever you wish.
           </p>

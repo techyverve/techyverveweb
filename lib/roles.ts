@@ -11,6 +11,10 @@ export interface Role {
   responsibilities: string[];
 }
 
+/** JobPosting dates. Update these when roles open or close; Google drops postings past validThrough. */
+export const JOBS_POSTED = "2026-10-01";
+export const JOBS_VALID_THROUGH = "2027-03-31";
+
 export const roles: Role[] = [
   {
     title: "Frontend developer",
